@@ -1,4 +1,6 @@
 import { memo, useEffect } from 'react'
+import { useSearch } from '@/hooks/useSearch'
+import { useValue } from '@/hooks/useValue'
 import { Box } from '@fower/react'
 import {
   getCurrentWebviewWindow,
@@ -8,8 +10,6 @@ import { open } from '@tauri-apps/plugin-shell'
 import { ListJSON } from 'penx'
 import clipboard from 'tauri-plugin-clipboard-api'
 import { Divider } from 'uikit'
-import { useSearch } from '~/hooks/useSearch'
-import { useValue } from '~/hooks/useValue'
 import { StyledCommandGroup } from '../CommandComponents'
 import { ListItemUI } from '../ListItemUI'
 import { DataListItem } from './DataListItem'

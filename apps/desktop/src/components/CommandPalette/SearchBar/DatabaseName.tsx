@@ -1,5 +1,5 @@
+import { useCurrentDatabase } from '@/hooks/useCurrentDatabase'
 import { Box } from '@fower/react'
-import { useCurrentDatabase } from '~/hooks/useCurrentDatabase'
 
 export const DatabaseName = () => {
   const { database } = useCurrentDatabase()

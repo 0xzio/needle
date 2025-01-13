@@ -1,3 +1,4 @@
+import { useAppMode } from '@/hooks/useAppMode'
 import { Box, FowerHTMLProps } from '@fower/react'
 import { invoke } from '@tauri-apps/api/core'
 import {
@@ -7,7 +8,6 @@ import {
 import { Minimize } from 'lucide-react'
 import { Button } from 'uikit'
 import { IconSwap } from '@penx/icons'
-import { useAppMode } from '~/hooks/useAppMode'
 
 interface Props extends FowerHTMLProps<'button'> {}
 

@@ -1,8 +1,8 @@
 import { ReactNode, useMemo } from 'react'
+import { ICommandItem } from '@/common/types'
+import { useCurrentCommand } from '@/hooks/useCurrentCommand'
 import { Box, css, FowerHTMLProps } from '@fower/react'
 import { IAccessory, isAccessoryObjectText } from 'penx'
-import { ICommandItem } from '~/common/types'
-import { useCurrentCommand } from '~/hooks/useCurrentCommand'
 import { StyledCommandItem } from './CommandComponents'
 import { ListItemIcon } from './ListItemIcon'
 

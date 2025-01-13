@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import { isIconify } from '@/common/isIconify'
+import { ICommandItem } from '@/common/types'
 import { useQuery } from '@tanstack/react-query'
 import { invoke } from '@tauri-apps/api/core'
 import { BaseDirectory, readDir } from '@tauri-apps/plugin-fs'
@@ -11,8 +13,6 @@ import { AppInfo } from 'tauri-plugin-jarvis-api/models'
 import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { Node } from '@penx/model'
-import { isIconify } from '~/common/isIconify'
-import { ICommandItem } from '~/common/types'
 import { useSearch } from './useSearch'
 
 const isDeveloping = (item: ICommandItem) => item.data?.isDeveloping

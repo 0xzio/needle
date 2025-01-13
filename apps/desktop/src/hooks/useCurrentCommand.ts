@@ -1,6 +1,6 @@
+import { ICommandItem } from '@/common/types'
 import { atom, useAtom } from 'jotai'
 import { IListItem } from 'penx'
-import { ICommandItem } from '~/common/types'
 
 export const currentCommandAtom = atom<ICommandItem>(
   null as any as ICommandItem,

@@ -1,3 +1,6 @@
+import { fetchInstallationJSON } from '@/common/fetchInstallationJSON'
+import { IExtensionItem } from '@/common/types'
+import { useLoadCommands } from '@/hooks/useItems'
 import { Box } from '@fower/react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Button, Spinner } from 'uikit'
@@ -5,9 +8,6 @@ import { RouterOutputs } from '@penx/api'
 import { db } from '@penx/local-db'
 import { Manifest } from '@penx/model'
 import { api } from '@penx/trpc-client'
-import { fetchInstallationJSON } from '~/common/fetchInstallationJSON'
-import { IExtensionItem } from '~/common/types'
-import { useLoadCommands } from '~/hooks/useItems'
 
 interface Props {
   item: IExtensionItem

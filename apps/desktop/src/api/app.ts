@@ -1,9 +1,9 @@
+import { commandUIAtom } from '@/hooks/useCommandAppUI'
+import { positionAtom } from '@/hooks/useCommandPosition'
+import { currentCommandAtom } from '@/hooks/useCurrentCommand'
 import { constructAPICallbackExecuter, EventType, LoadingType } from 'penx'
 import { appEmitter } from '@penx/event'
 import { store } from '@penx/store'
-import { commandUIAtom } from '~/hooks/useCommandAppUI'
-import { positionAtom } from '~/hooks/useCommandPosition'
-import { currentCommandAtom } from '~/hooks/useCurrentCommand'
 
 export function handleSearchChange(event: MessageEvent) {
   return constructAPICallbackExecuter<undefined>(

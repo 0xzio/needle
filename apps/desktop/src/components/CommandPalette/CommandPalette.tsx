@@ -1,22 +1,22 @@
 import { useEffect } from 'react'
+import { ICommandItem } from '@/common/types'
+import { useCommandAppLoading } from '@/hooks/useCommandAppLoading'
+import { commandUIAtom, useCommandAppUI } from '@/hooks/useCommandAppUI'
+import { positionAtom, useCommandPosition } from '@/hooks/useCommandPosition'
+import {
+  currentCommandAtom,
+  useCurrentCommand,
+} from '@/hooks/useCurrentCommand'
+import { useHandleSelect } from '@/hooks/useHandleSelect'
+import { useItems, useQueryCommands } from '@/hooks/useItems'
+import { useOnWindowMessage } from '@/hooks/useOnWindowMessage'
+import { useReset } from '@/hooks/useReset'
+import { useValue } from '@/hooks/useValue'
 import { Box } from '@fower/react'
 import { Command as ShellCmd } from '@tauri-apps/plugin-shell'
 import { Command } from 'cmdk'
 import { Command as ShellxCmd } from 'tauri-plugin-shellx-api'
 import { store } from '@penx/store'
-import { ICommandItem } from '~/common/types'
-import { useCommandAppLoading } from '~/hooks/useCommandAppLoading'
-import { commandUIAtom, useCommandAppUI } from '~/hooks/useCommandAppUI'
-import { positionAtom, useCommandPosition } from '~/hooks/useCommandPosition'
-import {
-  currentCommandAtom,
-  useCurrentCommand,
-} from '~/hooks/useCurrentCommand'
-import { useHandleSelect } from '~/hooks/useHandleSelect'
-import { useItems, useQueryCommands } from '~/hooks/useItems'
-import { useOnWindowMessage } from '~/hooks/useOnWindowMessage'
-import { useReset } from '~/hooks/useReset'
-import { useValue } from '~/hooks/useValue'
 import { CommandApp } from './CommandApp/CommandApp'
 import { StyledCommand, StyledCommandList } from './CommandComponents'
 import { CommandPaletteFooter } from './CommandPaletteFooter'

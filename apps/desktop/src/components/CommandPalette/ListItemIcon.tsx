@@ -1,12 +1,12 @@
 import { memo } from 'react'
 import SVG from 'react-inlinesvg'
+import { getIcon } from '@/common/icon'
+import { IconifyIconType, isIconify } from '@/common/isIconify'
 import { Box, css, FowerHTMLProps } from '@fower/react'
 import { Icon } from '@iconify/react'
 import { useQuery } from '@tanstack/react-query'
 import { isObjectIcon } from 'penx'
 import { getRandomColor } from '@penx/local-db'
-import { getIcon } from '~/common/icon'
-import { IconifyIconType, isIconify } from '~/common/isIconify'
 
 interface ListItemIconProps extends FowerHTMLProps<'div'> {
   icon?: any

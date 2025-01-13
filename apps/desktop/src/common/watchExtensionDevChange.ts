@@ -1,9 +1,9 @@
+import { createCommandWorker } from '@/common/createCommandWorker'
+import { currentCommandAtom } from '@/hooks/useCurrentCommand'
 import { listen } from '@tauri-apps/api/event'
 import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
 import { db } from '@penx/local-db'
 import { store } from '@penx/store'
-import { createCommandWorker } from '~/common/createCommandWorker'
-import { currentCommandAtom } from '~/hooks/useCurrentCommand'
 import { workerStore } from './workerStore'
 
 type Payload = {

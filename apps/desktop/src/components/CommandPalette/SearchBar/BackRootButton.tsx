@@ -1,7 +1,7 @@
+import { useCommandPosition } from '@/hooks/useCommandPosition'
+import { useSearch } from '@/hooks/useSearch'
 import { Box, FowerHTMLProps } from '@fower/react'
 import { ArrowLeft } from 'lucide-react'
-import { useCommandPosition } from '~/hooks/useCommandPosition'
-import { useSearch } from '~/hooks/useSearch'
 
 interface Props extends FowerHTMLProps<'div'> {}
 

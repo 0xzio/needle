@@ -1,3 +1,6 @@
+import { useAppMode } from '@/hooks/useAppMode'
+import { currentDatabaseAtom } from '@/hooks/useCurrentDatabase'
+import { isAddRowAtom } from '@/hooks/useIsAddRow'
 import { Box } from '@fower/react'
 import { invoke } from '@tauri-apps/api/core'
 import {
@@ -8,9 +11,6 @@ import { Plus } from 'lucide-react'
 import { Button } from 'uikit'
 import { db } from '@penx/local-db'
 import { store } from '@penx/store'
-import { useAppMode } from '~/hooks/useAppMode'
-import { currentDatabaseAtom } from '~/hooks/useCurrentDatabase'
-import { isAddRowAtom } from '~/hooks/useIsAddRow'
 
 interface Props {}
 

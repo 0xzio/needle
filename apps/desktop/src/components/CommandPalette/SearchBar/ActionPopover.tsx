@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useCommandPosition } from '@/hooks/useCommandPosition'
+import { useCurrentCommand } from '@/hooks/useCurrentCommand'
+import { useHandleSelect } from '@/hooks/useHandleSelect'
+import { useItems } from '@/hooks/useItems'
+import { useValue } from '@/hooks/useValue'
 import { Box, FowerHTMLProps } from '@fower/react'
 import { DoorOpenIcon, EyeOffIcon, Star } from 'lucide-react'
 import { Kbd, Popover, PopoverContent, PopoverTrigger } from 'uikit'
 import { appEmitter } from '@penx/event'
-import { useCommandPosition } from '~/hooks/useCommandPosition'
-import { useCurrentCommand } from '~/hooks/useCurrentCommand'
-import { useHandleSelect } from '~/hooks/useHandleSelect'
-import { useItems } from '~/hooks/useItems'
-import { useValue } from '~/hooks/useValue'
 import {
   StyledCommand,
   StyledCommandGroup,

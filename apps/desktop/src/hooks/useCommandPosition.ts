@@ -1,5 +1,5 @@
+import { workerStore } from '@/common/workerStore'
 import { atom, useAtom } from 'jotai'
-import { workerStore } from '~/common/workerStore'
 import { useCommandAppUI } from './useCommandAppUI'
 import { useCurrentCommand } from './useCurrentCommand'
 

@@ -1,6 +1,12 @@
 'use client'
 
 import { PropsWithChildren, useEffect } from 'react'
+import { installBuiltinExtension } from '@/common/installBuiltinExtension'
+import { CommandPalette } from '@/components/CommandPalette/CommandPalette'
+import { DesktopWelcome } from '@/components/DesktopWelcome'
+import { EditorModeApp } from '@/components/EditorModeApp'
+import { InitUserToStore } from '@/components/InitUserToStore'
+import { useAppMode } from '@/hooks/useAppMode'
 import { Box } from '@fower/react'
 import { isServer, useMutation, useQuery } from '@tanstack/react-query'
 import Head from 'next/head'
@@ -9,12 +15,6 @@ import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
-import { installBuiltinExtension } from '~/common/installBuiltinExtension'
-import { CommandPalette } from '~/components/CommandPalette/CommandPalette'
-import { DesktopWelcome } from '~/components/DesktopWelcome'
-import { EditorModeApp } from '~/components/EditorModeApp'
-import { InitUserToStore } from '~/components/InitUserToStore'
-import { useAppMode } from '~/hooks/useAppMode'
 
 export function MainApp() {
   const { isEditor } = useAppMode()

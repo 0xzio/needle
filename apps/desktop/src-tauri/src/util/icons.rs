@@ -61,7 +61,7 @@ pub fn convert_all_app_icons_to_png() {
     let result: Vec<String> = SearchBuilder::default()
         .location("/Applications")
         .more_locations(vec![
-            "~/Applications",
+            "@/Applications",
             "/System/Applications",
             "/System/Applications/Utilities",
         ])

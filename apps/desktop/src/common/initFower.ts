@@ -15,6 +15,7 @@ export function initFower() {
 
   setConfig({
     inline: false,
+    prefix: 'penx-',
     mode: {
       currentMode: 'dark',
       autoDarkMode: {

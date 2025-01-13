@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { useCurrentCommand } from '@/hooks/useCurrentCommand'
 import { Box } from '@fower/react'
 import { invoke } from '@tauri-apps/api/core'
 import { appEmitter } from '@penx/event'
 import { IconLogo } from '@penx/icons'
-import { useCurrentCommand } from '~/hooks/useCurrentCommand'
+import { Button } from '../ui/button'
 import { ListItemIcon } from './ListItemIcon'
 import { ActionPopover } from './SearchBar/ActionPopover'
 
@@ -37,6 +38,8 @@ export const CommandPaletteFooter = ({ footerHeight }: Props) => {
           }}
         />
       )}
+      <div className="px-4 py-2 bg-green-400">GOGOGO</div>
+      <Button variant="destructive">Click</Button>
       <Box
         data-tauri-drag-region
         flex-1

@@ -4,7 +4,7 @@ import {
   handleSearchChange,
   useHandleLoading,
   useHandleRender,
-} from '~/api/app'
+} from '@/api/app'
 import {
   handleClipboardHasFiles,
   handleClipboardHasHtml,
@@ -22,14 +22,14 @@ import {
   handleClipboardWriteImageBase64,
   handleClipboardWriteRtf,
   handleClipboardWriteText,
-} from '~/api/clipboard'
+} from '@/api/clipboard'
 import {
   handleDialogAsk,
   handleDialogConfirm,
   handleDialogMessage,
   handleDialogOpen,
   handleDialogSave,
-} from '~/api/dialog'
+} from '@/api/dialog'
 import {
   handleFsCopyFile,
   handleFsCreate,
@@ -45,19 +45,19 @@ import {
   handleFsTruncate,
   handleFsWriteFile,
   handleFsWriteTextFile,
-} from '~/api/fs'
+} from '@/api/fs'
 import {
   handleHttpFetchCancel,
   handleHttpFetchSend,
   handleHttpRawFetch,
   handleHttpReadBody,
-} from '~/api/httpReq'
+} from '@/api/httpReq'
 import {
   handleNotificationIsPermissionGranted,
   handleNotificationRequestPermission,
   handleNotificationSendNotification,
-} from '~/api/notification'
-import '~/api/os' // handleOsArch,
+} from '@/api/notification'
+import '@/api/os' // handleOsArch,
 
 // handleOsEol,
 // handleOsExeExtension,
@@ -66,15 +66,15 @@ import '~/api/os' // handleOsArch,
 // handleOsLocale,
 // handleOsPlatform,
 // handleOsVersion,
-import { handleRunAppleScript } from '~/api/script'
+import { handleRunAppleScript } from '@/api/script'
 import {
   handleShellxExecute,
   handleShellxKill,
   handleShellxOpen,
   handleShellxSpawn,
   handleShellxStdinWrite,
-} from '~/api/shell'
-import { useCommandAppUI } from '~/hooks/useCommandAppUI'
+} from '@/api/shell'
+import { useCommandAppUI } from '@/hooks/useCommandAppUI'
 
 export function useOnMessage() {
   const { setUI } = useCommandAppUI()
