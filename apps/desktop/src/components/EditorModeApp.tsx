@@ -6,7 +6,6 @@ import EditorApp from '@penx/app'
 import { appEmitter } from '@penx/event'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
-import { FirstLocalSpaceGenerator } from './FirstLocalSpaceGenerator/FirstLocalSpaceGenerator'
 import { ToggleModeButton } from './ToggleModeButton'
 
 const OnlineProvider = ({ children }: PropsWithChildren) => {
@@ -15,12 +14,6 @@ const OnlineProvider = ({ children }: PropsWithChildren) => {
   if (loading) return null
 
   if (!navigator.onLine) return <>{children}</>
-  console.log('data=========:', data)
-
-  // not logged in
-  if (!data) {
-    return <FirstLocalSpaceGenerator>{children}</FirstLocalSpaceGenerator>
-  }
 
   return null
 }

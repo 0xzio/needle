@@ -21,14 +21,12 @@ export const EditorApp = () => {
 
   return (
     <ClientOnly>
-      <ErrorBoundary fallback={<Fallback />}>
-        <HotkeyBinding />
-        <SpaceSyncManager userId={session?.id}>
-          <AppProvider>
-            <Workbench />
-          </AppProvider>
-        </SpaceSyncManager>
-      </ErrorBoundary>
+      <HotkeyBinding />
+      <SpaceSyncManager userId={session?.id}>
+        <AppProvider>
+          <Workbench />
+        </AppProvider>
+      </SpaceSyncManager>
     </ClientOnly>
   )
 }

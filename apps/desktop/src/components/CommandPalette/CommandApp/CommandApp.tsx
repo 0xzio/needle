@@ -3,8 +3,10 @@ import isEqual from 'react-fast-compare'
 import { Box } from '@fower/react'
 import { IListItem, isListJSON, isMarkdownJSON } from 'penx'
 import { Spinner } from 'uikit'
+import { useSession } from '@penx/session'
 import { Markdown } from '~/components/Markdown'
 import { CommandAppUI } from '~/hooks/useCommandAppUI'
+import { LoginByToken } from '../LoginByToken/LoginByToken'
 import { ClipboardHistoryApp } from './ClipboardHistoryApp'
 import { ListApp } from './ListApp'
 import { MarketplaceApp } from './MarketplaceApp/MarketplaceApp'
@@ -18,8 +20,15 @@ interface CommandAppProps {
 
 export const CommandApp = memo(
   function CommandApp({ loading, ui, currentCommand }: CommandAppProps) {
+    const { data } = useSession()
+
     if (ui.type === 'marketplace') {
       return <MarketplaceApp />
+    }
+
+    if (ui.type === 'posts') {
+      if (!data) return <LoginByToken />
+      return <div>Name...</div>
     }
 
     // if (ui.type === 'today') {

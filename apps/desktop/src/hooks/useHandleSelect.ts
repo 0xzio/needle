@@ -29,6 +29,33 @@ export function useHandleSelect() {
       return
     }
 
+    if (item.data.commandName === 'posts') {
+      setSearch('')
+      setCurrentCommand(item)
+      setUI({ type: 'posts' })
+      setPosition('COMMAND_APP')
+      appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
+      return
+    }
+
+    if (item.data.commandName === 'pages') {
+      setSearch('')
+      setCurrentCommand(item)
+      setUI({ type: 'pages' })
+      setPosition('COMMAND_APP')
+      appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
+      return
+    }
+
+    if (item.data.commandName === 'databases') {
+      setSearch('')
+      setCurrentCommand(item)
+      setUI({ type: 'databases' })
+      setPosition('COMMAND_APP')
+      appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
+      return
+    }
+
     if (item.data?.type === 'Database') {
       setSearch('')
       setDatabase(item.data.database)

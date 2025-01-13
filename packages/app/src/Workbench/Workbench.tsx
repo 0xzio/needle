@@ -13,8 +13,8 @@ import {
 import { IconSidebar } from '@penx/icons'
 import { useSession } from '@penx/session'
 import { getAuthorizedUser } from '@penx/storage'
+import { LoginByToken } from '../../../../apps/desktop/src/components/CommandPalette/LoginByToken/LoginByToken'
 import { Fallback } from '../Fallback/Fallback'
-import { LoginByTokenModal } from '../LoginByTokenModal/LoginByTokenModal'
 import { About } from './About/About'
 import { Account } from './Account/Account'
 import { BackupMnemonicTips } from './BackupMnemonicTips'
@@ -54,7 +54,7 @@ export const Workbench = () => {
 
   return (
     <>
-      <LoginByTokenModal />
+      <LoginByToken />
       <SettingsModal />
 
       <Box h-100vh toLeft black flex-1 relative bgWhite gapX10>

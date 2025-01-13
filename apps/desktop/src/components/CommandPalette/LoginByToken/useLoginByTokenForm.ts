@@ -24,6 +24,10 @@ export function useLoginByTokenForm() {
         data.token,
       )
 
+      console.log('=====token:', token, 'user:', user)
+
+      return
+
       store.setToken(token as string)
       store.user.setUser(new User(user as any))
 
@@ -46,6 +50,8 @@ export function useLoginByTokenForm() {
 
       appEmitter.emit('LOAD_CLOUD_SPACES')
     } catch (error) {
+      console.log('====error:', error)
+
       toast.warning('Please input a valid token')
     }
     setLoading(false)

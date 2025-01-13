@@ -17,6 +17,18 @@ type DatabaseUI = {
   type: 'database'
 }
 
+type DatabaseListUI = {
+  type: 'databases'
+}
+
+type PostListUI = {
+  type: 'posts'
+}
+
+type PageListUI = {
+  type: 'pages'
+}
+
 type LoadingUI = {
   type: 'loading'
   data: LoadingType
@@ -46,6 +58,9 @@ export type CommandAppUI =
   | DatabaseUI
   | ClipboardHistoryUI
   | RenderUI
+  | DatabaseListUI
+  | PostListUI
+  | PageListUI
 
 export const commandUIAtom = atom<CommandAppUI>({} as CommandAppUI)
 
