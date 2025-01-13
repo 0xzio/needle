@@ -6,12 +6,11 @@ import { db } from '@penx/local-db'
 import { Manifest } from '@penx/model'
 import { api } from '@penx/trpc-client'
 import { fetchInstallationJSON } from '~/common/fetchInstallationJSON'
+import { IExtensionItem } from '~/common/types'
 import { useLoadCommands } from '~/hooks/useItems'
 
-type ExtensionItem = RouterOutputs['extension']['all'][0]
-
 interface Props {
-  item: ExtensionItem
+  item: IExtensionItem
 }
 
 export function InstallExtensionButton({ item }: Props) {

@@ -43,7 +43,7 @@ export function getPublicKey(mnemonic: string) {
 
 export function encryptByPublicKey(plainText: string, publicKey: string) {
   const data = Buffer.from(plainText)
-  const encrypted = encrypt(publicKey, data)
+  const encrypted = encrypt(publicKey, data as any)
   const base64String = encrypted.toString('base64')
   return base64String
 }
@@ -53,7 +53,7 @@ export function decryptByMnemonic(base64String: string, mnemonic: string) {
   const seed = mnemonicToSeedSync(mnemonic)
   const root = hdkey.fromMasterSeed(seed)
   const privateKey = root.privateKey.toString('hex')
-  return decrypt(privateKey, buffer).toString()
+  return decrypt(privateKey, buffer as any).toString()
 }
 
 function base64ToBuffer(data: string) {

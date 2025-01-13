@@ -7,15 +7,14 @@ import { db } from '@penx/local-db'
 import { Manifest } from '@penx/model'
 import { IExtension } from '@penx/model-types'
 import { fetchInstallationJSON } from '~/common/fetchInstallationJSON'
+import { IExtensionItem } from '~/common/types'
 import { StyledCommandItem } from '../../CommandComponents'
 import { ListItemIcon } from '../../ListItemIcon'
 
-type ExtensionItem = RouterOutputs['extension']['all'][0]
-
 interface ExtensionItemProps {
-  item: ExtensionItem
+  item: IExtensionItem
   extensions: IExtension[]
-  onSelect: (item: ExtensionItem) => void
+  onSelect: (item: IExtensionItem) => void
 }
 
 export function ExtensionItem({
@@ -51,7 +50,7 @@ export function ExtensionItem({
     },
   })
 
-  function onSelectExtension(item: ExtensionItem) {
+  function onSelectExtension(item: IExtensionItem) {
     onSelect(item)
   }
 

@@ -7,15 +7,14 @@ import { RouterOutputs } from '@penx/api'
 import { IconGitHub } from '@penx/icons'
 import { Manifest } from '@penx/model'
 import { IExtension } from '@penx/model-types'
+import { IExtensionItem } from '~/common/types'
 import { Markdown } from '~/components/Markdown'
 import { ListItemIcon } from '../../ListItemIcon'
 import { InstallExtensionButton } from './InstallExtensionButton'
 import { UninstallExtensionButton } from './UninstallExtensionButton'
 
-type ExtensionItem = RouterOutputs['extension']['all'][0]
-
 interface ExtensionDetailProps {
-  item: ExtensionItem
+  item: IExtensionItem
   extensions: IExtension[]
 }
 

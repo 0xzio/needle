@@ -18,9 +18,9 @@ export function CommitListContainer({ token, date }: CommitListContainerProps) {
 
   const octoRef = useRef(new Octokit({ auth: token }))
 
-  const { data, isLoading } = useQuery(
-    ['commits', token, date.toISOString()],
-    () =>
+  const { data, isLoading } = useQuery({
+    queryKey: ['commits', token, date.toISOString()],
+    queryFn: () =>
       octoRef.current.request('GET /repos/{owner}/{repo}/commits', {
         owner: user.repoOwner,
         repo: user.repoName,
@@ -30,7 +30,7 @@ export function CommitListContainer({ token, date }: CommitListContainerProps) {
         since: startOfDay(date).toISOString(),
         until: endOfDay(date).toISOString(),
       }),
-  )
+  })
 
   if (isLoading) {
     return (

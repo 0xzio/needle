@@ -6,25 +6,11 @@ import { RouterOutputs } from '@penx/api'
 import { BASE_URL } from '@penx/constants'
 import { db } from '@penx/local-db'
 import { trpc } from '@penx/trpc-client'
+import { IExtensionItem } from '~/common/types'
 import { useCommandPosition } from '~/hooks/useCommandPosition'
 import { StyledCommandGroup } from '../../CommandComponents'
 import { ExtensionDetail } from './ExtensionDetail'
 import { ExtensionItem } from './ExtensionItem'
-
-type ExtensionItem = {
-  id: string
-  userId: string
-  name: string
-  title: string
-  manifest: string
-  readme: string
-  logo: string
-  installationCount: number
-  starCount: number
-  commentCount: number
-  createdAt: string
-  updatedAt: string
-}
 
 export function MarketplaceApp() {
   const { data = [], isLoading } = useQuery({
@@ -33,9 +19,8 @@ export function MarketplaceApp() {
       const res: any[] = await fetch(
         `${BASE_URL}/api/trpc/extension.all?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D`,
       ).then((res) => res.json())
-      console.log('========res:', res)
 
-      return res[0].result.data.json as ExtensionItem[]
+      return res[0].result.data.json as IExtensionItem[]
     },
   })
 
@@ -45,7 +30,7 @@ export function MarketplaceApp() {
   })
 
   const { isCommandAppDetail, setPosition } = useCommandPosition()
-  const [extension, setExtension] = useState<ExtensionItem>(null as any)
+  const [extension, setExtension] = useState<IExtensionItem>(null as any)
 
   if (isLoading)
     return (

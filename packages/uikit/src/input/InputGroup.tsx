@@ -23,16 +23,16 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
     )
 
     validChildren.forEach((child, index) => {
-      const { id = '' } = child.type
+      const { id = '' } = child.type as any
       const placement =
         index === 0
           ? Placement.start
           : index === validChildren.length - 1
-          ? Placement.end
-          : Placement.middle
+            ? Placement.end
+            : Placement.middle
 
       placementMap.set(child.props, { id, placement })
-      if (child.props?.size) size = child.props?.size
+      if ((child.props as any)?.size) size = (child.props as any)?.size
     })
 
     return (

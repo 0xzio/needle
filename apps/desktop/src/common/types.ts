@@ -20,3 +20,18 @@ export interface ICommandItem extends IListItem {
     appIconPath?: string
   }
 }
+
+export type IExtensionItem = {
+  id: string
+  userId: string
+  name: string
+  title: string
+  manifest: string
+  readme: string
+  logo: string
+  installationCount: number
+  starCount: number
+  commentCount: number
+  createdAt: string
+  updatedAt: string
+}

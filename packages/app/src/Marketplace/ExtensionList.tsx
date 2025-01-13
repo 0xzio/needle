@@ -7,10 +7,10 @@ import { useExtension } from './hooks/useExtension'
 
 export function ExtensionList() {
   const { extension, setExtension } = useExtension()
-  const { data, isLoading } = useQuery(
-    ['marketplace'],
-    () => api.extension.all.query() as any,
-  )
+  const { data, isLoading } = useQuery({
+    queryKey: ['marketplace'],
+    queryFn: () => api.extension.all.query() as any,
+  })
 
   useEffect(() => {
     if (!data) return

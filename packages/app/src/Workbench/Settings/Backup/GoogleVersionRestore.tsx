@@ -88,9 +88,9 @@ function BackupList({ date }: BackListProps) {
   const { space } = useSelectedSpace()
   const dayStr = format(date || new Date(), 'yyyy-MM-dd')
 
-  const { data, isLoading } = useQuery(
-    ['data', dayStr, space.id],
-    async () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ['data', dayStr, space.id],
+    queryFn: async () => {
       const data = await getAuthorizedUser()
       const user = new User(data as any)
       const dateFolderName = `space_${space.id}_${dayStr}`
@@ -108,8 +108,8 @@ function BackupList({ date }: BackListProps) {
 
       return spaceFiles || []
     },
-    { enabled: !!space?.raw },
-  )
+    enabled: !!space?.raw,
+  })
 
   if (isLoading) {
     return <Spinner />

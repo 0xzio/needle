@@ -530,7 +530,7 @@ export class DatabaseDomain {
             },
           ],
         },
-      } as IViewNode)
+      })
     }
 
     const rows = await this.penx.node
