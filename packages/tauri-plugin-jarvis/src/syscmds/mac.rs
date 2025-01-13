@@ -65,33 +65,33 @@ impl CommonSystemCmds for SystemCmds {
         Ok(())
     }
 
-    fn get_selected_files() -> anyhow::Result<Vec<PathBuf>> {
-        let output = run_apple_script(
-            r#"use framework "Foundation"
-            use scripting additions
-            
-            tell application "Finder"
-                set selectedFiles to selection
-                if (count of selectedFiles) is 0 then
-                    do shell script "echo No files are selected."
-                else
-                    set filePathList to {}
-                    repeat with i from 1 to count of selectedFiles
-                        set thisFile to item i of selectedFiles
-                        set end of filePathList to (POSIX path of (thisFile as alias))
-                    end repeat
-                    
-                    -- Convert the list to a JSON string
-                    set jsonArray to current application's NSJSONSerialization's dataWithJSONObject:filePathList options:0 |error|:(missing value)
-                    set jsonString to (current application's NSString's alloc()'s initWithData:jsonArray encoding:(current application's NSUTF8StringEncoding))
-                    
-                    -- Print the JSON string to stdout
-                    do shell script "echo " & quoted form of (jsonString as text)
-                end if
-            end tell
-            "#,
-        )?;
-        let paths: Vec<PathBuf> = serde_json::from_str(&output.stdout)?;
-        Ok(paths)
-    }
+    // fn get_selected_files() -> anyhow::Result<Vec<PathBuf>> {
+    //     let output = run_apple_script(
+    //         r#"use framework "Foundation"
+    //         use scripting additions
+
+    //         tell application "Finder"
+    //             set selectedFiles to selection
+    //             if (count of selectedFiles) is 0 then
+    //                 do shell script "echo No files are selected."
+    //             else
+    //                 set filePathList to {}
+    //                 repeat with i from 1 to count of selectedFiles
+    //                     set thisFile to item i of selectedFiles
+    //                     set end of filePathList to (POSIX path of (thisFile as alias))
+    //                 end repeat
+
+    //                 -- Convert the list to a JSON string
+    //                 set jsonArray to current application's NSJSONSerialization's dataWithJSONObject:filePathList options:0 |error|:(missing value)
+    //                 set jsonString to (current application's NSString's alloc()'s initWithData:jsonArray encoding:(current application's NSUTF8StringEncoding))
+
+    //                 -- Print the JSON string to stdout
+    //                 do shell script "echo " & quoted form of (jsonString as text)
+    //             end if
+    //         end tell
+    //         "#,
+    //     )?;
+    //     let paths: Vec<PathBuf> = serde_json::from_str(&output.stdout)?;
+    //     Ok(paths)
+    // }
 }

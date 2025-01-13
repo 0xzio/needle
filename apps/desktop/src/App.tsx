@@ -1,51 +1,62 @@
-import { useState } from 'react'
-import { invoke } from '@tauri-apps/api/core'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect } from 'react'
+import { ToastContainer } from 'uikit'
+import { appEmitter } from '@penx/event'
+import { StoreProvider } from '@penx/store'
+import { TrpcProvider } from '@penx/trpc-client'
+import '@glideapps/glide-data-grid/dist/index.css'
+import { initFower } from './common/initFower'
+import { MainApp } from './MainApp'
+import '~/styles/globals.css'
+import '~/styles/command.scss'
+import { fixPathEnv } from 'tauri-plugin-shellx-api'
+import { registerDefaultAppHotkey } from '@penx/app'
+import { handleEscape } from './common/handleEscape'
+import { watchDesktopLogin } from './common/watchDesktopLogin'
+import { watchExtensionDevChange } from './common/watchExtensionDevChange'
+import { useInitThemeMode } from './hooks/useInitThemeMode'
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState('')
-  const [name, setName] = useState('')
+initFower()
 
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke('greet', { name }))
-  }
+async function init() {
+  handleEscape()
+  watchExtensionDevChange()
+  watchDesktopLogin()
+  registerDefaultAppHotkey()
+}
+
+init()
+
+function MyApp() {
+  useEffect(() => {
+    fixPathEnv() // without this, PATH variable may not be loaded and thus non-system shell commands may fail
+    const handleSignOut = async () => {
+      // const user = store.user.getUser()
+      // await setMnemonicToLocal(user.id, '')
+      // await clearAuthorizedUser()
+      // await setLocalSession(null as any)
+      // store.setToken(null as any)
+      // store.user.setUser(null as any)
+      // store.user.setMnemonic('')
+      // appEmitter.emit('SIGN_OUT_SUCCESSFULLY')
+    }
+    appEmitter.on('SIGN_OUT', handleSignOut)
+    return () => {
+      appEmitter.off('SIGN_OUT', handleSignOut)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useInitThemeMode()
 
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault()
-          greet()
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+    <StoreProvider>
+      <TrpcProvider>
+        <ToastContainer position="bottom-right" />
+        <MainApp />
+        <div id="portal" />
+      </TrpcProvider>
+    </StoreProvider>
   )
 }
 
-export default App
+export default MyApp

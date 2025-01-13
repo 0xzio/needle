@@ -31,7 +31,7 @@ export const SelectIcon = forwardRef<HTMLDivElement, SelectIconProps>(
     let childrenElement: ReactNode = <ChevronDown size={size} />
 
     if (children) {
-      childrenElement = children
+      childrenElement = children as any
     }
 
     return (

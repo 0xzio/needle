@@ -62,7 +62,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
           {...inputProps}
         />
 
-        {render({ ...state, children, colorScheme })}
+        {render({ ...state, children, colorScheme } as any)}
 
         {children && (
           <Box className="uikit-checkbox-label" leading-1em>

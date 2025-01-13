@@ -17,7 +17,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
-    "@tauri-apps/plugin-http": "2.0.0-beta.5",
+    "@tauri-apps/plugin-http": "^2",
     "@penx/api": "workspace:*",
     "@penx/constants": "workspace:*",
     "@penx/local-db": "workspace:*",
@@ -25,7 +25,6 @@
     "@penx/model-types": "workspace:*",
     "@penx/unique-id": "workspace:*",
     "@prisma/client": "^5.6.0",
-    "@privy-io/react-auth": "^1.68.0",
     "idb-keyval": "^6.2.1",
     "nanoid": "^5.0.4",
     "superjson": "1.9.1",

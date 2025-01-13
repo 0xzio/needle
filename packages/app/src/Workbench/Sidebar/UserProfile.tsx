@@ -8,7 +8,6 @@ import {
   User,
   Wallet,
 } from 'lucide-react'
-import { useDisconnect } from 'wagmi'
 import {
   Avatar,
   AvatarFallback,
@@ -33,7 +32,6 @@ interface Props extends FowerHTMLProps<'div'> {
 export const UserProfile = ({ isMobile, ...rest }: Props) => {
   const { user } = useUser()
 
-  // const { disconnect, disconnectAsync } = useDisconnect()
   const { loading, data: session } = useSession()
 
   const name = useMemo(() => {

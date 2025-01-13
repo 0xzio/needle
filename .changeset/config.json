@@ -25,7 +25,6 @@
     "@penx/local-db",
     "@penx/session",
     "@penx/app",
-    "@penx/wagmi",
     "@penx/widget",
     "@penx/math",
     "@penx/model",

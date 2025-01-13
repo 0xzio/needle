@@ -22,9 +22,9 @@
     "develop": "rollup -c --watch"
   },
   "dependencies": {
-    "@tauri-apps/api": "2.0.0-beta.13",
+    "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-log": "2.0.0-beta.4",
-    "@tauri-apps/plugin-os": "2.0.0-beta.3",
+    "@tauri-apps/plugin-os": "^2",
     "zod": "^3.23.8"
   },
   "devDependencies": {

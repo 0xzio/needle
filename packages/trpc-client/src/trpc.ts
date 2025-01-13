@@ -23,6 +23,7 @@
 
 // export const trpc = createTRPCReact<AppRouter>()
 
+import { fetch } from '@tauri-apps/plugin-http'
 import { createTRPCClient, httpBatchLink } from '@trpc/client'
 import { createTRPCReact } from '@trpc/react-query'
 import superjson from 'superjson'
@@ -35,7 +36,8 @@ const link = httpBatchLink({
   fetch: fetch,
   url: `${BASE_URL}/api/trpc`,
   async headers() {
-    return await getHeaders()
+    // return await getHeaders()
+    return {}
   },
 })
 

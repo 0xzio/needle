@@ -83,7 +83,7 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             commands::system::unmute,
             commands::system::hide_all_apps_except_frontmost,
             commands::system::get_frontmost_app,
-            commands::system::get_selected_files_in_file_explorer,
+            // commands::system::get_selected_files_in_file_explorer,
             // run scripts
             commands::utils::run_apple_script,
             commands::utils::run_powershell,
@@ -98,35 +98,35 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             // utils
             commands::fs::path_exists,
             // server
-            commands::server::start_server,
-            commands::server::stop_server,
-            commands::server::restart_server,
-            commands::server::set_dev_extension_folder,
-            commands::server::set_extension_folder,
-            commands::server::get_extension_folder,
-            commands::server::get_dev_extension_folder,
-            commands::server::server_is_running,
+            // commands::server::start_server,
+            // commands::server::stop_server,
+            // commands::server::restart_server,
+            // commands::server::set_dev_extension_folder,
+            // commands::server::set_extension_folder,
+            // commands::server::get_extension_folder,
+            // commands::server::get_dev_extension_folder,
+            // commands::server::server_is_running,
             // fs
-            commands::fs::decompress_tarball,
-            commands::fs::compress_tarball,
+            // commands::fs::decompress_tarball,
+            // commands::fs::compress_tarball,
             // extensions
-            commands::extension::is_window_label_registered,
-            commands::extension::register_extension_window,
-            commands::extension::unregister_extension_window,
-            commands::extension::get_ext_label_map,
+            // commands::extension::is_window_label_registered,
+            // commands::extension::register_extension_window,
+            // commands::extension::unregister_extension_window,
+            // commands::extension::get_ext_label_map,
             // extension storage API wrapper
-            commands::storage::ext_store_wrapper_set,
-            commands::storage::ext_store_wrapper_get,
-            commands::storage::ext_store_wrapper_has,
-            commands::storage::ext_store_wrapper_delete,
-            commands::storage::ext_store_wrapper_clear,
-            commands::storage::ext_store_wrapper_reset,
-            commands::storage::ext_store_wrapper_keys,
-            commands::storage::ext_store_wrapper_values,
-            commands::storage::ext_store_wrapper_entries,
-            commands::storage::ext_store_wrapper_length,
-            commands::storage::ext_store_wrapper_load,
-            commands::storage::ext_store_wrapper_save,
+            // commands::storage::ext_store_wrapper_set,
+            // commands::storage::ext_store_wrapper_get,
+            // commands::storage::ext_store_wrapper_has,
+            // commands::storage::ext_store_wrapper_delete,
+            // commands::storage::ext_store_wrapper_clear,
+            // commands::storage::ext_store_wrapper_reset,
+            // commands::storage::ext_store_wrapper_keys,
+            // commands::storage::ext_store_wrapper_values,
+            // commands::storage::ext_store_wrapper_entries,
+            // commands::storage::ext_store_wrapper_length,
+            // commands::storage::ext_store_wrapper_load,
+            // commands::storage::ext_store_wrapper_save,
         ])
         .setup(|app, api| {
             // #[cfg(mobile)]
@@ -139,21 +139,10 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             app.manage(JarvisState::default());
             app.manage(commands::apps::ApplicationsState::default());
 
-            let mut store = StoreBuilder::new("appConfig.bin").build(app.clone());
-            let _ = store.load();
-
-            let app_settings = match AppSettings::load_from_store(&store) {
-                Ok(settings) => settings,
-                Err(_) => AppSettings::default(),
-            };
             let ext_folder: Option<PathBuf> = get_default_extensions_dir(app).ok();
-            app.manage(commands::server::Server::new(
-                ext_folder,
-                app_settings.dev_extention_path,
-            ));
-            utils::setup::setup_server(app); // start the server
-            utils::setup::setup_app_path(app);
-            utils::setup::setup_extension_storage(app);
+            // utils::setup::setup_server(app); // start the server
+            // utils::setup::setup_app_path(app);
+            // utils::setup::setup_extension_storage(app);
             Ok(())
         })
         .build()

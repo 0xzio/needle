@@ -3,5 +3,77 @@
   "identifier": "default",
   "description": "Capability for the main window",
   "windows": ["main"],
-  "permissions": ["core:default", "opener:default"]
+  "permissions": [
+    "core:path:default",
+    "core:event:default",
+    "core:window:default",
+    "core:window:allow-hide",
+    "core:window:allow-show",
+    "core:window:allow-set-focus",
+    "core:window:allow-center",
+    "core:window:allow-start-dragging",
+    "core:window:allow-start-resize-dragging",
+    "core:webview:default",
+    "core:app:default",
+    "core:resources:default",
+    "core:image:default",
+    "core:menu:default",
+    "core:tray:default",
+    "fs:default",
+    "fs:read-all",
+    "fs:write-all",
+    "fs:scope-home-recursive",
+    "shell:default",
+    "shell:allow-open",
+    "shellx:allow-execute",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "echo",
+          "cmd": "echo",
+          "args": true
+        }
+      ]
+    },
+    "shellx:allow-spawn",
+    "shellx:allow-kill",
+    "shellx:allow-open",
+    "shellx:allow-stdin-write",
+    "os:default",
+    "os:allow-platform",
+    "os:allow-arch",
+    "os:allow-exe-extension",
+    "os:allow-family",
+    "os:allow-hostname",
+    "os:allow-os-type",
+    "os:allow-version",
+    "os:allow-locale",
+    "global-shortcut:default",
+    "global-shortcut:allow-register-all",
+    "global-shortcut:allow-unregister-all",
+    "global-shortcut:allow-register",
+    "global-shortcut:allow-unregister",
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "https://*"
+        },
+        {
+          "url": "http://*"
+        }
+      ]
+    },
+    "jarvis:allow-all",
+    "clipboard:read-all",
+    "clipboard:write-all",
+    "dialog:default",
+    "dialog:allow-ask",
+    "dialog:allow-open",
+    "dialog:allow-confirm",
+    "dialog:allow-save",
+    "dialog:allow-message",
+    "notification:default"
+  ]
 }

@@ -40,7 +40,7 @@ export const SelectItem = forwardRef<HTMLInputElement, SelectItemProps>(
         }}
         {...rest}
       >
-        {children}
+        {children as any}
       </Radio>
     )
   },

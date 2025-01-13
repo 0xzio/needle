@@ -21,5 +21,5 @@ export const Portal: FC<PortalProps> = (props) => {
         </Box>,
         document.body,
       )
-    : null
+    : (null as any)
 }

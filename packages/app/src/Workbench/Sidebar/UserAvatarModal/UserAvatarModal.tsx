@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import { Box } from '@fower/react'
 import { Eye, MoreHorizontal } from 'lucide-react'
-import { useAccount, useDisconnect } from 'wagmi'
 import {
   Avatar,
   AvatarFallback,
@@ -25,12 +24,7 @@ import { QrCode } from './QrCode'
 interface Props {}
 
 export const UserAvatarModal: FC<Props> = () => {
-  const { address = '' } = useAccount()
-  const { disconnect } = useDisconnect()
   const { copy } = useCopyToClipboard()
-
-  const nickname =
-    address!.substring(0, 6) + '...' + address!.substring(address!.length - 4)
 
   return (
     <Modal>
@@ -53,9 +47,9 @@ export const UserAvatarModal: FC<Props> = () => {
             {/* <Avatar>
               <AvatarFallback>{nickname}</AvatarFallback>
             </Avatar> */}
-            <Box>{nickname}</Box>
+            {/* <Box>{nickname}</Box> */}
           </Box>
-          <MoreHorizontal size={20} />
+          {/* <MoreHorizontal size={20} /> */}
         </Box>
       </ModalTrigger>
       <ModalOverlay />
@@ -66,19 +60,17 @@ export const UserAvatarModal: FC<Props> = () => {
           <Box toCenterY toBetween gap3>
             <Box toCenterY gap3>
               <Avatar size="lg">
-                <AvatarFallback>{nickname}</AvatarFallback>
+                {/* <AvatarFallback>{nickname}</AvatarFallback> */}
               </Avatar>
               <Box textBase fontSemibold leadingNormal>
-                {nickname}
+                {/* {nickname} */}
               </Box>
             </Box>
             <Button
               isSquare
               variant="ghost"
               colorScheme="gray600"
-              onClick={() => {
-                disconnect()
-              }}
+              onClick={() => {}}
             >
               <IconDisconnect />
             </Button>

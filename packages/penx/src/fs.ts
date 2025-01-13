@@ -278,7 +278,8 @@ export const fs: IFs = {
   },
   writeFile: function (
     path: string | URL,
-    data: Uint8Array,
+    // data: Uint8Array,
+    data: any,
     options?: fsApi.WriteFileOptions,
   ): ReturnType<typeof fsApi.writeFile> {
     return constructAPI<

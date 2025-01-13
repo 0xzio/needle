@@ -26,5 +26,5 @@ pub trait CommonSystemCmds {
     fn toggle_mute() -> Result<()>;
     fn mute() -> Result<()>;
     fn unmute() -> Result<()>;
-    fn get_selected_files() -> Result<Vec<std::path::PathBuf>>;
+    // fn get_selected_files() -> Result<Vec<std::path::PathBuf>>;
 }

@@ -202,7 +202,7 @@ impl CommonSystemCmds for SystemCmds {
         }
     }
 
-    fn get_selected_files() -> anyhow::Result<Vec<std::path::PathBuf>> {
-        Ok(vec![])
-    }
+    // fn get_selected_files() -> anyhow::Result<Vec<std::path::PathBuf>> {
+    //     Ok(vec![])
+    // }
 }

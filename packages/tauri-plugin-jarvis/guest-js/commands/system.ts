@@ -113,7 +113,7 @@ export function hideAllAppsExceptFrontmost() {
 }
 
 export function getSelectedFilesInFileExplorer() {
-  return invoke<string[]>('plugin:jarvis|get_selected_files_in_file_explorer')
+  // return invoke<string[]>('plugin:jarvis|get_selected_files_in_file_explorer')
 }
 
 export const rawSystemCommands = [

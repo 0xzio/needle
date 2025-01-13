@@ -1,12 +1,17 @@
 use applications::utils::image::{RustImage, RustImageData};
+use std::path::Path;
 use std::{
     ffi::OsStr,
     fs::File,
     io::{BufReader, Cursor},
     path::PathBuf,
 };
+use uuid::Uuid;
+
+#[cfg(target_os = "macos")]
 use tauri_icns::{IconFamily, IconType};
 
+#[cfg(target_os = "macos")]
 /// Load Apple icns
 pub fn load_icns(icns_path: &PathBuf) -> anyhow::Result<RustImageData> {
     if icns_path
@@ -82,6 +87,43 @@ pub fn load_icon(path: PathBuf) -> tauri::http::Response<Vec<u8>> {
             .body(error.to_string().as_bytes().to_vec())
             .unwrap(),
     }
+}
+
+#[cfg(target_os = "windows")]
+pub fn load_icon(path: PathBuf) -> tauri::http::Response<Vec<u8>> {
+    // tauri::http::Response::builder().body(vec![]).unwrap()
+    match path.exists() {
+        true => {
+            let res = tauri::http::Response::builder()
+                .status(tauri::http::StatusCode::INTERNAL_SERVER_ERROR)
+                .body("Error loading icon".as_bytes().to_vec())
+                .unwrap();
+            return res;
+        }
+        false => {
+            let res = tauri::http::Response::builder()
+                .status(tauri::http::StatusCode::NOT_FOUND)
+                .body("file not found".as_bytes().to_vec())
+                .unwrap();
+            return res;
+        }
+    }
+}
+
+#[cfg(all(test, target_os = "windows"))]
+mod tests {
+    use super::*;
+    use std::io::Write;
+    use std::path::PathBuf;
+
+    // #[test]
+    // fn test_load_icon() {
+    //     let path = PathBuf::from(
+    //         "C:\\Windows\\Installer\\{89C3B1AD-04F9-4A43-940D-51E26BC47942}\\ProductIcon",
+    //     );
+    //     let icon = load_ico(path).unwrap();
+    //     icon.write_png(std::fs::File::create("icon.png").unwrap()).unwrap();
+    // }
 }
 
 #[cfg(all(test, target_os = "macos"))]

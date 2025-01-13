@@ -153,8 +153,8 @@ pub async fn hide_all_apps_except_frontmost() -> Result<(), String> {
     Ok(())
 }
 
-/// For macOS, return the selected files in the finder
-#[tauri::command]
-pub async fn get_selected_files_in_file_explorer() -> Result<Vec<std::path::PathBuf>, String> {
-    SystemCmds::get_selected_files().map_err(|err| err.to_string())
-}
+// For macOS, return the selected files in the finder
+// #[tauri::command]
+// pub async fn get_selected_files_in_file_explorer() -> Result<Vec<std::path::PathBuf>, String> {
+//     SystemCmds::get_selected_files().map_err(|err| err.to_string())
+// }

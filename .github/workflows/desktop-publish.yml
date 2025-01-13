@@ -2,8 +2,10 @@ name: "Desktop App Publish"
 
 on:
   push:
-    tags:
-      - "v*"
+    # tags:
+    #   - "v*"
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:

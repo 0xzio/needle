@@ -1,4 +1,7 @@
-import { getCurrent } from '@tauri-apps/api/webviewWindow'
+import {
+  getCurrentWebviewWindow,
+  WebviewWindow,
+} from '@tauri-apps/api/webviewWindow'
 import { register, unregister } from '@tauri-apps/plugin-global-shortcut'
 import { get, set } from 'idb-keyval'
 import { APP_HOTKEY, appDefaultHotkey } from './constants'
@@ -31,7 +34,7 @@ export function convertKeysToHotkey(keys: string[]) {
 }
 
 export async function registerAppHotkey(hotkey: string) {
-  const appWindow = getCurrent()
+  const appWindow = getCurrentWebviewWindow()
   await unregister(hotkey)
 
   await register(hotkey, async () => {
