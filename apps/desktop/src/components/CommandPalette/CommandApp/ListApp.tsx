@@ -1,4 +1,5 @@
 import { memo, useEffect } from 'react'
+import { Separator } from '@/components/ui/separator'
 import { useSearch } from '@/hooks/useSearch'
 import { useValue } from '@/hooks/useValue'
 import { Box } from '@fower/react'
@@ -9,7 +10,6 @@ import {
 import { open } from '@tauri-apps/plugin-shell'
 import { ListJSON } from 'penx'
 import clipboard from 'tauri-plugin-clipboard-api'
-import { Divider } from 'uikit'
 import { StyledCommandGroup } from '../CommandComponents'
 import { ListItemUI } from '../ListItemUI'
 import { DataListItem } from './DataListItem'
@@ -81,7 +81,7 @@ export const ListApp = memo(function ListApp({ component }: ListAppProps) {
       {listJSX}
       {isShowingDetail && (
         <>
-          <Divider orientation="vertical" />
+          <Separator className="h-full" />
           <Box className="command-app-list-detail" flex-3 overflowAuto p3>
             <Box text2XL fontBold mb2>
               Detail

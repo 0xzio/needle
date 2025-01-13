@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { ToastContainer } from 'uikit'
+import { Toaster } from 'sonner'
 import { appEmitter } from '@penx/event'
 import { StoreProvider } from '@penx/store'
 import { TrpcProvider } from '@penx/trpc-client'
@@ -9,10 +9,10 @@ import { MainApp } from './MainApp'
 import '@/styles/globals.css'
 import '@/styles/command.scss'
 import { fixPathEnv } from 'tauri-plugin-shellx-api'
-import { registerDefaultAppHotkey } from '@penx/app'
 import { handleEscape } from './common/handleEscape'
 import { watchDesktopLogin } from './common/watchDesktopLogin'
 import { watchExtensionDevChange } from './common/watchExtensionDevChange'
+import { registerDefaultAppHotkey } from './components/BindAppHotkey'
 import { useInitThemeMode } from './hooks/useInitThemeMode'
 
 initFower()
@@ -51,7 +51,8 @@ function MyApp() {
   return (
     <StoreProvider>
       <TrpcProvider>
-        <ToastContainer position="bottom-right" />
+        <Toaster className="dark:hidden" richColors />
+        <Toaster theme="dark" className="hidden dark:block" richColors />
         <MainApp />
         <div id="portal" />
       </TrpcProvider>

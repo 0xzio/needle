@@ -1,7 +1,8 @@
+import LoadingCircle from '@/components/icons/loading-circle'
+import { Button } from '@/components/ui/button'
 import { useLoadCommands } from '@/hooks/useItems'
 import { Box } from '@fower/react'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Button, Spinner } from 'uikit'
 import { db } from '@penx/local-db'
 
 interface Props {
@@ -23,8 +24,8 @@ export function UninstallExtensionButton({ localExtensionId }: Props) {
 
   return (
     <Button
-      colorScheme="white"
       w-90
+      className="w-[90px]"
       size="sm"
       // w-80
       disabled={isPending}
@@ -34,7 +35,7 @@ export function UninstallExtensionButton({ localExtensionId }: Props) {
         refetchCommands()
       }}
     >
-      {isPending && <Spinner white square4 />}
+      {isPending && <LoadingCircle />}
       <Box>Uninstall</Box>
     </Button>
   )

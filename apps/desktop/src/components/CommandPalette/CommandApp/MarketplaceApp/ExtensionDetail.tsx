@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import { IExtensionItem } from '@/common/types'
 import { Markdown } from '@/components/Markdown'
+import { Separator } from '@/components/ui/separator'
 import { Box } from '@fower/react'
 import { open } from '@tauri-apps/plugin-shell'
 import { DownloadCloud } from 'lucide-react'
-import { Divider } from 'uikit'
 import { RouterOutputs } from '@penx/api'
 import { IconGitHub } from '@penx/icons'
 import { Manifest } from '@penx/model'
@@ -111,7 +111,7 @@ export function ExtensionDetail({ item, extensions }: ExtensionDetailProps) {
         </Box>
       )}
 
-      <Divider my4 />
+      <Separator className="my-4" />
       {item.readme && <Markdown content={item.readme} />}
     </Box>
   )

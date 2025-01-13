@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { IExtensionItem } from '@/common/types'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useCommandPosition } from '@/hooks/useCommandPosition'
 import { Box } from '@fower/react'
 import { useQuery } from '@tanstack/react-query'
-import { Skeleton } from 'uikit'
 import { RouterOutputs } from '@penx/api'
 import { BASE_URL } from '@penx/constants'
 import { db } from '@penx/local-db'
@@ -25,9 +25,9 @@ export function PostListApp() {
   if (isLoading)
     return (
       <Box column gap1>
-        <Skeleton h-64 />
-        <Skeleton h-64 />
-        <Skeleton h-64 />
+        <Skeleton className="h-[64px]" />
+        <Skeleton className="h-[64px]" />
+        <Skeleton className="h-[64px]" />
       </Box>
     )
 

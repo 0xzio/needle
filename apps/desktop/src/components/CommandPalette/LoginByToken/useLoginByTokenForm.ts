@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { toast } from 'uikit'
+import { toast } from 'sonner'
 import { appEmitter } from '@penx/event'
 import { User } from '@penx/model'
 import { setAuthorizedUser, setLocalSession } from '@penx/storage'

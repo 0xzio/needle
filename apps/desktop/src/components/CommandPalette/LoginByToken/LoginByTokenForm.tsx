@@ -1,6 +1,8 @@
 import { Controller } from 'react-hook-form'
+import LoadingCircle from '@/components/icons/loading-circle'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Box } from '@fower/react'
-import { Button, Input, Spinner } from 'uikit'
 import { useLoginByTokenForm } from './useLoginByTokenForm'
 
 export function LoginByTokenForm() {
@@ -24,7 +26,7 @@ export function LoginByTokenForm() {
         w-100p
         disabled={loading || !formState.isValid}
       >
-        {loading && <Spinner white />}
+        {loading && <LoadingCircle />}
         <Box>Login</Box>
       </Button>
     </Box>

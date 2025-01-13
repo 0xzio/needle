@@ -1,11 +1,10 @@
 import { PropsWithChildren, useEffect } from 'react'
 import { Box } from '@fower/react'
 import { useQuery } from '@tanstack/react-query'
-import EditorApp from '@penx/app'
-// import { EditorApp } from '@penx/app'
 import { appEmitter } from '@penx/event'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
+import { EditorApp } from './EditorApp'
 import { ToggleModeButton } from './ToggleModeButton'
 
 const OnlineProvider = ({ children }: PropsWithChildren) => {

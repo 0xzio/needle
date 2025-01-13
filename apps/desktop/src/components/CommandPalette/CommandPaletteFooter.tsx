@@ -38,7 +38,7 @@ export const CommandPaletteFooter = ({ footerHeight }: Props) => {
           }}
         />
       )}
-      <div className="px-4 py-2 bg-green-400">GOGOGO</div>
+      <div className="px-4 py-2 bg-green-400">GOGO</div>
       <Button variant="destructive">Click</Button>
       <Box
         data-tauri-drag-region

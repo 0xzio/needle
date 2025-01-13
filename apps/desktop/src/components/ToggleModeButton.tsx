@@ -6,8 +6,8 @@ import {
   WebviewWindow,
 } from '@tauri-apps/api/webviewWindow'
 import { Minimize } from 'lucide-react'
-import { Button } from 'uikit'
 import { IconSwap } from '@penx/icons'
+import { Button } from './ui/button'
 
 interface Props extends FowerHTMLProps<'button'> {}
 
@@ -47,14 +47,7 @@ export const ToggleModeButton = ({ ...rest }: Props) => {
     }
   }
   return (
-    <Button
-      isSquare
-      colorScheme="gray900"
-      variant="ghost"
-      size="sm"
-      onClick={() => setWindow()}
-      {...rest}
-    >
+    <Button size="icon" onClick={() => setWindow()} {...rest}>
       {isEditor && (
         <Box inlineFlex neutral800>
           <Minimize size={20} />

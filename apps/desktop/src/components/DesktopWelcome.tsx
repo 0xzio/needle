@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { Box } from '@fower/react'
-import { Button, Spinner } from 'uikit'
-import { BindAppHotkey, registerDefaultAppHotkey } from '@penx/app'
 import { Logo } from '@penx/widget'
+import { BindAppHotkey, registerDefaultAppHotkey } from './BindAppHotkey'
+import LoadingCircle from './icons/loading-circle'
+import { Button } from './ui/button'
 
 interface DesktopWelcomeProps {
   isLoading: boolean
@@ -41,13 +42,12 @@ export function DesktopWelcome({
 
       <Button
         variant="outline"
-        colorScheme="black"
         size="lg"
-        mt5
+        className="mt-5"
         disabled={isLoading}
         onClick={() => onGetStarted()}
       >
-        {isLoading && <Spinner />}
+        {isLoading && <LoadingCircle />}
         <Box>Get Started</Box>
       </Button>
     </Box>

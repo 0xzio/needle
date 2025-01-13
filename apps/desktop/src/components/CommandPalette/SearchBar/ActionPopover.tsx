@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Kbd } from '@/components/Kbd'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import { useCommandPosition } from '@/hooks/useCommandPosition'
 import { useCurrentCommand } from '@/hooks/useCurrentCommand'
 import { useHandleSelect } from '@/hooks/useHandleSelect'
@@ -6,7 +12,6 @@ import { useItems } from '@/hooks/useItems'
 import { useValue } from '@/hooks/useValue'
 import { Box, FowerHTMLProps } from '@fower/react'
 import { DoorOpenIcon, EyeOffIcon, Star } from 'lucide-react'
-import { Kbd, Popover, PopoverContent, PopoverTrigger } from 'uikit'
 import { appEmitter } from '@penx/event'
 import {
   StyledCommand,
@@ -56,15 +61,15 @@ export const ActionPopover = ({}: Props) => {
 
   return (
     <Popover
-      isOpen={open}
+      open={open}
       onOpenChange={(v) => {
         setOpen(v)
         if (!v) {
           appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
         }
       }}
-      placement="top-end"
-      offset={{ mainAxis: 20 }}
+      // placement="top-end"
+      // offset={{ mainAxis: 20 }}
     >
       <PopoverTrigger>
         <Box
@@ -89,12 +94,7 @@ export const ActionPopover = ({}: Props) => {
           </Box>
         </Box>
       </PopoverTrigger>
-      <PopoverContent
-        className="action-menu"
-        shadow2XL
-        border
-        borderNeutral200--T30
-      >
+      <PopoverContent className="action-menu shadow-2xl border border-foreground/30">
         <StyledCommand w-320>
           <StyledCommandList
             p2

@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { useAppMode } from '@/hooks/useAppMode'
 import { currentDatabaseAtom } from '@/hooks/useCurrentDatabase'
 import { isAddRowAtom } from '@/hooks/useIsAddRow'
@@ -8,7 +9,6 @@ import {
   WebviewWindow,
 } from '@tauri-apps/api/webviewWindow'
 import { Plus } from 'lucide-react'
-import { Button } from 'uikit'
 import { db } from '@penx/local-db'
 import { store } from '@penx/store'
 
@@ -18,13 +18,8 @@ export const AddRowButton = ({}: Props) => {
   const { isEditor, setMode } = useAppMode()
   return (
     <Button
-      size={36}
-      colorScheme="white"
-      absolute
-      right2
-      roundedFull
-      toCenterY
-      gap1
+      size="lg"
+      className="absolute right-2 rounded-full flex items-center gap-1"
       onClick={async () => {
         const appWindow = getCurrentWebviewWindow()
         setMode('EDITOR')

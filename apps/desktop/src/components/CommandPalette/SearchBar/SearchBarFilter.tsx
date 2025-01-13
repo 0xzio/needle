@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { Box } from '@fower/react'
 import {
   Select,
   SelectContent,
-  SelectIcon,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from 'uikit'
+} from '@/components/ui/select'
+import { Box } from '@fower/react'
 import { appEmitter } from '@penx/event'
 import { FilterItem } from '@penx/model-types'
 
@@ -57,20 +56,20 @@ interface FilterSelectProps {
 function FilterSelect({ value, onChange, items }: FilterSelectProps) {
   return (
     <Select
-      placement="bottom-end"
+      // placement="bottom-end"
       value={value}
-      onChange={(v: string) => onChange(v)}
+      onValueChange={(v: string) => onChange(v)}
     >
-      <SelectTrigger flex-1 textSM bgZinc100 w-120>
+      <SelectTrigger className="flex-1 text-sm bg-foreground/10 w-[120px]">
         <SelectValue flexShrink-0 placeholder=""></SelectValue>
-        <SelectIcon></SelectIcon>
+        {/* <SelectIcon></SelectIcon> */}
       </SelectTrigger>
-      <SelectContent w-200 maxH-240 useTriggerWidth={false} overflowAuto>
+      <SelectContent className="w-[200px] max-h-[24px] overflow-auto">
         {items.map((item) => (
           <SelectItem
             key={item.value + item.value.toString()}
-            value={item.value}
-            toBetween
+            value={item.value as string}
+            className="flex justify-between"
           >
             <Box flex-1>{item.label}</Box>
           </SelectItem>

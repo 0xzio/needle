@@ -1,10 +1,10 @@
 import { fetchInstallationJSON } from '@/common/fetchInstallationJSON'
 import { IExtensionItem } from '@/common/types'
+import LoadingCircle from '@/components/icons/loading-circle'
+import { Button } from '@/components/ui/button'
 import { useLoadCommands } from '@/hooks/useItems'
 import { Box } from '@fower/react'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Button, Spinner } from 'uikit'
-import { RouterOutputs } from '@penx/api'
 import { db } from '@penx/local-db'
 import { Manifest } from '@penx/model'
 import { api } from '@penx/trpc-client'
@@ -38,8 +38,7 @@ export function InstallExtensionButton({ item }: Props) {
 
   return (
     <Button
-      colorScheme="black"
-      w-90
+      className="w-[90px]"
       size="sm"
       disabled={isPending}
       onClick={async () => {
@@ -54,7 +53,7 @@ export function InstallExtensionButton({ item }: Props) {
         }
       }}
     >
-      {isPending && <Spinner white square4 />}
+      {isPending && <LoadingCircle />}
       <Box>Install</Box>
     </Button>
   )
