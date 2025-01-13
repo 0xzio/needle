@@ -1,7 +1,6 @@
 import { Box } from '@fower/react'
 import { Avatar, AvatarFallback, MenuItem } from 'uikit'
 import { Node } from '@penx/model'
-import { docToMarkdown } from '@penx/shared'
 
 interface Props {
   node: Node

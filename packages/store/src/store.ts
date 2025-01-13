@@ -3,12 +3,9 @@ import { atom, createStore } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { commands } from './constants'
 import { AppStore } from './stores/AppStore'
-import { CatalogueStore } from './stores/CatalogueStore'
-import { EditorStore } from './stores/EditorStore'
 import { NodeStore } from './stores/NodeStore'
 import { RouterStore } from './stores/RouterStore'
 import { SpaceStore } from './stores/SpaceStore'
-// import { SyncStore } from './stores/SyncStore'
 import { UserStore } from './stores/UserStore'
 import { Command } from './types'
 
@@ -31,10 +28,6 @@ export const store = Object.assign(baseStore, {
     return new RouterStore(this)
   },
 
-  get editor() {
-    return new EditorStore(this)
-  },
-
   get space() {
     return new SpaceStore(this)
   },
@@ -42,14 +35,6 @@ export const store = Object.assign(baseStore, {
   get node() {
     return new NodeStore(this)
   },
-
-  get catalogue() {
-    return new CatalogueStore(this)
-  },
-
-  // get sync() {
-  //   return new SyncStore(this)
-  // },
 
   get user() {
     return new UserStore(this)

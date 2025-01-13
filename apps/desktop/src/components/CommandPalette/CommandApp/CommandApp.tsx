@@ -6,7 +6,6 @@ import { Spinner } from 'uikit'
 import { Markdown } from '~/components/Markdown'
 import { CommandAppUI } from '~/hooks/useCommandAppUI'
 import { ClipboardHistoryApp } from './ClipboardHistoryApp'
-import { DatabaseApp } from './DatabaseApp/DatabaseApp'
 import { ListApp } from './ListApp'
 import { MarketplaceApp } from './MarketplaceApp/MarketplaceApp'
 import { TodayApp } from './TodayApp'
@@ -25,10 +24,6 @@ export const CommandApp = memo(
 
     // if (ui.type === 'today') {
     //   return <TodayApp />
-    // }
-
-    // if (ui.type === 'database') {
-    //   return <DatabaseApp />
     // }
 
     // if (ui.type === 'clipboard-history') {

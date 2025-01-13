@@ -4,7 +4,6 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { Box } from '@fower/react'
 import { useQuery } from '@tanstack/react-query'
 import { SIDEBAR_WIDTH, WORKBENCH_NAV_HEIGHT } from '@penx/constants'
-import { EditorProvider } from '@penx/editor'
 import {
   useActiveNodes,
   useActiveSpace,
@@ -16,27 +15,17 @@ import { useSession } from '@penx/session'
 import { getAuthorizedUser } from '@penx/storage'
 import { Fallback } from '../Fallback/Fallback'
 import { LoginByTokenModal } from '../LoginByTokenModal/LoginByTokenModal'
-import { CommandPanel } from '../Palette'
 import { About } from './About/About'
 import { Account } from './Account/Account'
 import { BackupMnemonicTips } from './BackupMnemonicTips'
-import { BottomBar } from './BottomBar'
 import { General } from './General/General'
-import { MobileNav } from './NodeNav/MobileNav'
-import { PCNav } from './NodeNav/PCNav'
-import { NodePanels } from './NodePanels'
 import { PageDatabases } from './PageDatabases/PageDatabases'
 import { PageExtensions } from './PageExtensions/PageExtensions'
-import { PageTodo } from './PageTodo/PageTodo'
-import { RecoveryPhrase } from './RecoveryPhrase/RecoveryPhrase'
-import { RowModal } from './RowModal'
 import { AccountSettings } from './Settings/AccountSettings/AccountSettings'
-import { GoogleBackup } from './Settings/Backup/GoogleBackup'
 // import { LocalBackup } from './Settings/LocalBackup/LocalBackup'
 import { PageSettings } from './Settings/PageSettings/PageSettings'
 import { SettingsModal } from './Settings/SettingsModal/SettingsModal'
 import { Sidebar } from './Sidebar/Sidebar'
-import { TagHubModal } from './TagHubModal/TagHubModal'
 
 export const Workbench = () => {
   const { activeSpace } = useActiveSpace()
@@ -64,15 +53,11 @@ export const Workbench = () => {
   if (!activeSpace) return null
 
   return (
-    <EditorProvider space={activeSpace}>
+    <>
       <LoginByTokenModal />
       <SettingsModal />
-      <TagHubModal />
-      <RowModal />
 
       <Box h-100vh toLeft black flex-1 relative bgWhite gapX10>
-        {/* {!isBackedUp && session && name === 'NODE' && <BackupMnemonicTips />} */}
-
         <Box toLeft relative>
           <Box
             w={sidebarOpen ? [0, 0, SIDEBAR_WIDTH] : 0}
@@ -102,23 +87,11 @@ export const Workbench = () => {
         </Box>
         <Box data-tauri-drag-region flex-1 relative overflowHidden>
           <ErrorBoundary fallback={<Fallback />}>
-            {name === 'TODOS' && <BottomBar />}
-
-            {name === 'NODE' && <NodePanels />}
-
-            {name === 'RESTORE_BACKUP' && (
-              <Box p10 mt10>
-                <GoogleBackup />
-              </Box>
-            )}
-
             {name !== 'NODE' && (
               <Box data-tauri-drag-region h-100vh overflowYAuto toCenterY pl10>
                 {/* <PCNav /> */}
-                <MobileNav />
 
                 {name === 'SETTINGS' && <PageSettings />}
-                {name === 'TODOS' && <PageTodo />}
                 {name === 'DATABASES' && <PageDatabases />}
                 {name === 'GENERAL' && <General />}
                 {name === 'ABOUT' && <About />}
@@ -127,11 +100,6 @@ export const Workbench = () => {
                 {name === 'ACCOUNT_SETTINGS' && (
                   <Box p5>
                     <AccountSettings />
-                  </Box>
-                )}
-                {name === 'RECOVER_PHRASE' && (
-                  <Box p5>
-                    <RecoveryPhrase />
                   </Box>
                 )}
                 {/* {name === 'LOCAL_BACKUP' && (
@@ -144,6 +112,6 @@ export const Workbench = () => {
           </ErrorBoundary>
         </Box>
       </Box>
-    </EditorProvider>
+    </>
   )
 }

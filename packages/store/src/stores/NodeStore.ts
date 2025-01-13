@@ -19,7 +19,6 @@ import {
   NodeType,
   ViewType,
 } from '@penx/model-types'
-import { nodeToSlate } from '@penx/serializer'
 import { StoreType } from '../store-types'
 
 type FindOptions<T = INode> = {

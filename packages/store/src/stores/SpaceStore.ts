@@ -3,7 +3,6 @@ import { db } from '@penx/local-db'
 import { Space } from '@penx/model'
 import { ISpace } from '@penx/model-types'
 import { getAuthorizedUser, setActiveSpaceId } from '@penx/storage'
-import { SyncServerClient } from '@penx/sync-server-client'
 import { StoreType } from '../store-types'
 
 export const spacesAtom = atom<ISpace[]>([])

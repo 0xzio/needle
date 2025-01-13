@@ -6,7 +6,6 @@ import EditorApp from '@penx/app'
 import { appEmitter } from '@penx/event'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
-// import { RecoveryPhraseLoginProvider } from '@penx/widget'
 import { FirstLocalSpaceGenerator } from './FirstLocalSpaceGenerator/FirstLocalSpaceGenerator'
 import { ToggleModeButton } from './ToggleModeButton'
 

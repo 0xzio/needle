@@ -22,7 +22,6 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
-    "@penx/autoformat": "workspace:*",
     "@penx/constants": "workspace:*",
     "@penx/encryption": "workspace:*",
     "@penx/model-types": "workspace:*",

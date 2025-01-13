@@ -1,11 +1,8 @@
 import { Atom, WritableAtom } from 'jotai'
 import type { AppStore } from './stores/AppStore'
-import { CatalogueStore } from './stores/CatalogueStore'
-import type { EditorStore } from './stores/EditorStore'
 import type { NodeStore } from './stores/NodeStore'
 import type { RouterStore } from './stores/RouterStore'
 import type { SpaceStore } from './stores/SpaceStore'
-import type { SyncStore } from './stores/SyncStore'
 import type { UserStore } from './stores/UserStore'
 
 export type StoreType = {
@@ -18,9 +15,6 @@ export type StoreType = {
   router: RouterStore
   space: SpaceStore
   node: NodeStore
-  catalogue: CatalogueStore
-  editor: EditorStore
   app: AppStore
-  sync: SyncStore
   user: UserStore
 }

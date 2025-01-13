@@ -3,13 +3,12 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { Box } from '@fower/react'
 import { produce } from 'immer'
 import { Checkbox, Input } from 'uikit'
-import { SettingsSchema } from '@penx/extension-typings'
 import { useActiveSpace } from '@penx/hooks'
 import { db } from '@penx/local-db'
 import { FormField } from './FormField'
 
 interface Props {
-  schema: SettingsSchema
+  schema: any
   extensionId: string
 }
 
@@ -39,7 +38,7 @@ export const ExtensionSettingsForm = ({ schema, extensionId }: Props) => {
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSubmit)} column p8 w-100p>
-      {schema.map((item) => {
+      {schema.map((item: any) => {
         if (item.component === 'Checkbox') {
           return (
             <FormField
