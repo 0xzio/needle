@@ -1,5 +1,5 @@
 {
-  "name": "penx",
+  "name": "penx-desktop",
   "private": true,
   "scripts": {
     "dev": "turbo run dev --filter=@penx/db && turbo run dev --filter=web",
@@ -29,6 +29,13 @@
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
     ]
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.64.0",
+    "@trpc/client": "11.0.0-rc.466",
+    "@trpc/next": "11.0.0-rc.466",
+    "@trpc/react-query": "11.0.0-rc.466",
+    "@trpc/server": "11.0.0-rc.466"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",

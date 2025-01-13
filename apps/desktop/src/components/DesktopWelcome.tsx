@@ -31,10 +31,10 @@ export function DesktopWelcome({
         <Box data-tauri-drag-region text2XL fontLight neutral400>
           Welcome to
         </Box>
-        <Logo></Logo>
+        <Logo showImage={false}></Logo>
       </Box>
       <Box text3XL toCenterY gap2>
-        <Box fontBold>A cross-platform productivity App</Box>
+        <Box fontBold>Desktop client of PenX</Box>
       </Box>
 
       <BindAppHotkey />

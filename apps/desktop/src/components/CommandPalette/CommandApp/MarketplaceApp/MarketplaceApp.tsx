@@ -3,6 +3,7 @@ import { Box } from '@fower/react'
 import { useQuery } from '@tanstack/react-query'
 import { Skeleton } from 'uikit'
 import { RouterOutputs } from '@penx/api'
+import { BASE_URL } from '@penx/constants'
 import { db } from '@penx/local-db'
 import { trpc } from '@penx/trpc-client'
 import { useCommandPosition } from '~/hooks/useCommandPosition'
@@ -10,10 +11,33 @@ import { StyledCommandGroup } from '../../CommandComponents'
 import { ExtensionDetail } from './ExtensionDetail'
 import { ExtensionItem } from './ExtensionItem'
 
-type ExtensionItem = RouterOutputs['extension']['all'][0]
+type ExtensionItem = {
+  id: string
+  userId: string
+  name: string
+  title: string
+  manifest: string
+  readme: string
+  logo: string
+  installationCount: number
+  starCount: number
+  commentCount: number
+  createdAt: string
+  updatedAt: string
+}
 
 export function MarketplaceApp() {
-  const { data = [], isLoading } = trpc.extension.all.useQuery()
+  const { data = [], isLoading } = useQuery({
+    queryKey: ['extension', 'all'],
+    queryFn: async () => {
+      const res: any[] = await fetch(
+        `${BASE_URL}/api/trpc/extension.all?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D`,
+      ).then((res) => res.json())
+      console.log('========res:', res)
+
+      return res[0].result.data.json as ExtensionItem[]
+    },
+  })
 
   const { data: extensions = [] } = useQuery({
     queryKey: ['extension', 'installed'],

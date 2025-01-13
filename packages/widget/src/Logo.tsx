@@ -5,23 +5,27 @@ interface Props extends FowerHTMLProps<'div'> {
   size?: number
   showText?: boolean
   stroke?: number | string
+  showImage?: boolean
 }
 
 export const Logo = ({
   showText = true,
+  showImage = true,
   size = 32,
   stroke = 2,
   ...rest
 }: Props) => {
   const content = (
     <>
-      <IconLogo
-        size={size * 0.9}
-        strokeWidth={30}
-        stroke="black"
-        fillWhite--dark
-        stroke--dark="white"
-      />
+      {showImage && (
+        <IconLogo
+          size={size * 0.9}
+          strokeWidth={30}
+          stroke="black"
+          fillWhite--dark
+          stroke--dark="white"
+        />
+      )}
 
       {showText && (
         <Box>

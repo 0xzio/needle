@@ -16,7 +16,7 @@ import { api, trpc } from '@penx/trpc-client'
 
 const Footer = () => {
   const { close } = useModalContext<string>()
-  const { isLoading, mutateAsync } = trpc.user.deleteAccount.useMutation()
+  const { isPending, mutateAsync } = trpc.user.deleteAccount.useMutation()
   async function deleteAccount() {
     await mutateAsync()
 
@@ -29,8 +29,8 @@ const Footer = () => {
       <ModalClose asChild>
         <Button colorScheme="white">Cancel</Button>
       </ModalClose>
-      <Button colorScheme="red500" disabled={isLoading} onClick={deleteAccount}>
-        {isLoading && <Spinner white square4 />}
+      <Button colorScheme="red500" disabled={isPending} onClick={deleteAccount}>
+        {isPending && <Spinner white square4 />}
         <Box>Delete</Box>
       </Button>
     </Box>

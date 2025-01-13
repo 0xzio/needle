@@ -175,9 +175,9 @@ function BackupItem({ file }: BackupItemProps) {
 }
 
 function ConfirmButton({ file }: BackupItemProps) {
-  const { mutateAsync, isLoading } = useMutation(
-    ['restore_from_google', file.id],
-    async () => {
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ['restore_from_google', file.id],
+    mutationFn: async () => {
       const data = await getAuthorizedUser()
       // TODO:
       const user = new User(data as any)
@@ -215,12 +215,12 @@ function ConfirmButton({ file }: BackupItemProps) {
       }
       return result.space as ISpace
     },
-  )
+  })
   const { close } = usePopoverContext()
 
   return (
     <Button
-      disabled={isLoading}
+      disabled={isPending}
       gap2
       onClick={async () => {
         try {
@@ -237,7 +237,7 @@ function ConfirmButton({ file }: BackupItemProps) {
         }
       }}
     >
-      {isLoading && <Spinner square4 white />}
+      {isPending && <Spinner square4 white />}
       <Box>Confirm</Box>
     </Button>
   )

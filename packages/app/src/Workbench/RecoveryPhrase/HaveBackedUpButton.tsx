@@ -11,7 +11,7 @@ interface Props {}
 
 export const HaveBackedUpButton: FC<Props> = () => {
   const { user } = useUser()
-  const { isLoading, mutateAsync } =
+  const { isPending: isLoading, mutateAsync } =
     trpc.user.updateMnemonicBackupStatus.useMutation()
 
   if (!user) return null

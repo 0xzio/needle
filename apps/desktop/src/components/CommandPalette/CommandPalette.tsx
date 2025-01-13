@@ -34,13 +34,11 @@ export const CommandPalette = () => {
   const { developingItems, commandItems, databaseItems, applicationItems } =
     useItems()
 
-  // console.log('========items:', items)
-
-  // console.log(
-  //   '=========developingItems, commandItems:',
-  //   developingItems,
-  //   commandItems,
-  // )
+  console.log(
+    '=========developingItems, commandItems:',
+    developingItems,
+    commandItems,
+  )
 
   const { isRoot, isCommandApp } = useCommandPosition()
   const { currentCommand } = useCurrentCommand()

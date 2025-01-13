@@ -9,10 +9,6 @@ import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
-import {
-  FirstLocalSpaceGenerator,
-  RecoveryPhraseLoginProvider,
-} from '@penx/widget'
 import { installBuiltinExtension } from '~/common/installBuiltinExtension'
 import { CommandPalette } from '~/components/CommandPalette/CommandPalette'
 import { DesktopWelcome } from '~/components/DesktopWelcome'
@@ -27,18 +23,24 @@ export function MainApp() {
     isLoading,
     data: isBoarded,
     refetch,
-  } = useQuery(['isFistTime'], async () => {
-    const isBoarded = localStorage.getItem('PENX_IS_BOARDED')
-    return !!isBoarded
+  } = useQuery({
+    queryKey: ['isFistTime'],
+    queryFn: async () => {
+      const isBoarded = localStorage.getItem('PENX_IS_BOARDED')
+      return !!isBoarded
+    },
   })
 
   const {
     isLoading: isSessionLoading,
     data: session,
     refetch: refetchSession,
-  } = useQuery(['session'], async () => {
-    const session = await getLocalSession()
-    return session ? session : null
+  } = useQuery({
+    queryKey: ['session'],
+    queryFn: async () => {
+      const session = await getLocalSession()
+      return session ? session : null
+    },
   })
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export function MainApp() {
     })
   }, [refetchSession])
 
-  const { isLoading: initializing, mutateAsync: init } = useMutation({
+  const { isPending: initializing, mutateAsync: init } = useMutation({
     mutationKey: ['init_data_fist_time'],
     mutationFn: async () => {
       localStorage.setItem('PENX_IS_BOARDED', 'yes')

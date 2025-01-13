@@ -29,16 +29,16 @@ export function initFower() {
 
   setTheme({
     colors: {
-      brand50: '#eef2ff',
-      brand100: '#e0e7ff',
-      brand200: '#c7d2fe',
-      brand300: '#a5b4fc',
-      brand400: '#818cf8',
-      brand500: '#6B37FF',
-      brand600: '#4f46e5',
-      brand700: '#4338ca',
-      brand800: '#5b21b6',
-      brand900: '#4c1d95',
+      brand50: '#fdf2f8',
+      brand100: '#fce7f3',
+      brand200: '#fbcfe8',
+      brand300: '#f9a8d4',
+      brand400: '#f472b6',
+      brand500: '#ec4899',
+      brand600: '#db2777',
+      brand700: '#be123c',
+      brand800: '#9f1239',
+      brand900: '#881337',
     },
     shadows: {
       popover:

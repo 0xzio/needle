@@ -23,7 +23,7 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.45.1",
+    "@tanstack/react-query": "^5.64.0",
     "@tauri-apps/api": "2.0.0-beta.13",
     "@tauri-apps/plugin-dialog": "2.0.0-beta.5",
     "@tauri-apps/plugin-fs": "2.0.0-beta.5",
