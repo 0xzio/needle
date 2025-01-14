@@ -83,3 +83,23 @@ export type IPost = {
   updatedAt: Date
   userId: string
 }
+
+export type IPage = {
+  id: string
+  slug: string
+  parentId: string
+  parentType: string
+  title: string
+  cover: string
+  icon: string
+  isTrashed: boolean
+  isJournal: boolean
+  children: any
+  props: any
+  date: string
+  createdAt: Date
+  updatedAt: Date
+  // blocks:     Block[]
+  blocks: any[]
+  userId: string
+}

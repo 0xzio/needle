@@ -4,7 +4,7 @@ export function TodayApp() {
   return (
     <Box>
       <Box text3XL fontBlack>
-        Today
+        Coming soon...
       </Box>
     </Box>
   )

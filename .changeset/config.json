@@ -20,7 +20,6 @@
     "extension-template-solid",
     "extension-template-svelte",
     "tauri-plugin-jarvis-api",
-    "@penx/db",
     "@penx/local-db",
     "@penx/session",
     "@penx/app",

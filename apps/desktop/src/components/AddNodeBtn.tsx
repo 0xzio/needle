@@ -5,7 +5,8 @@ import { insertEmptyParagraph } from './editor/lib/insertEmptyParagraph'
 import { useCreateEditor } from './editor/use-create-editor'
 
 interface Props {
-  editor: ReturnType<typeof useCreateEditor>
+  // editor: ReturnType<typeof useCreateEditor>
+  editor: any
 }
 
 export function AddNodeBtn({ editor }: Props) {

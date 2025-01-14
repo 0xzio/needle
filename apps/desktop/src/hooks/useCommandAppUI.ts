@@ -13,10 +13,6 @@ type TodayUI = {
   type: 'today'
 }
 
-type DatabaseUI = {
-  type: 'database'
-}
-
 type DatabaseListUI = {
   type: 'databases'
 }
@@ -59,7 +55,6 @@ export type CommandAppUI =
   | LoadingUI
   | MarketplaceUI
   | TodayUI
-  | DatabaseUI
   | ClipboardHistoryUI
   | RenderUI
   | DatabaseListUI

@@ -19,15 +19,6 @@ export async function installBuiltinExtension() {
     icon: '/logo/128x128.png',
     commands: [
       {
-        name: 'marketplace',
-        title: 'marketplace',
-        icon: '/icons/marketplace.svg',
-        subtitle: '',
-        description: '',
-        code: '',
-        isBuiltIn: true,
-      },
-      {
         name: 'today',
         title: 'Today',
         icon: '/icons/marketplace.svg',
@@ -54,9 +45,18 @@ export async function installBuiltinExtension() {
         code: '',
         isBuiltIn: true,
       },
+      // {
+      //   name: 'databases',
+      //   title: 'Databases',
+      //   icon: '/icons/marketplace.svg',
+      //   subtitle: '',
+      //   description: '',
+      //   code: '',
+      //   isBuiltIn: true,
+      // },
       {
-        name: 'databases',
-        title: 'Databases',
+        name: 'marketplace',
+        title: 'marketplace',
         icon: '/icons/marketplace.svg',
         subtitle: '',
         description: '',

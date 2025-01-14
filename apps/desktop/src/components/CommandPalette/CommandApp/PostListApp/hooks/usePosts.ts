@@ -4,7 +4,6 @@ import { trpc } from '@penx/trpc-client'
 
 export function usePosts() {
   const { data: session } = useSession()
-
   const {
     data = [],
     isLoading,

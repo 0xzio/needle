@@ -25,7 +25,7 @@ export function PostListApp() {
   }
 
   return (
-    <div>
+    <CommandGroup>
       {isCommandAppDetail && <PostDetail item={post} />}
       {!isCommandAppDetail &&
         posts?.map((item) => {
@@ -40,8 +40,6 @@ export function PostListApp() {
             />
           )
         })}
-    </div>
-    // <CommandGroup>
-    // </CommandGroup>
+    </CommandGroup>
   )
 }

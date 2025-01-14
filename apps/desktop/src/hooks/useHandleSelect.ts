@@ -55,6 +55,7 @@ export function useHandleSelect() {
       appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
       return
     }
+
     if (item.data.commandName === 'settings') {
       setSearch('')
       setCurrentCommand(item)
@@ -64,13 +65,11 @@ export function useHandleSelect() {
       return
     }
 
-    if (item.data?.type === 'Database') {
+    if (item.data.commandName === 'today') {
       setSearch('')
-      setDatabase(item.data.database)
       setCurrentCommand(item)
-      setUI({ type: 'database' })
+      setUI({ type: 'today' })
       setPosition('COMMAND_APP')
-
       appEmitter.emit('FOCUS_SEARCH_BAR_INPUT')
       return
     }

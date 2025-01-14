@@ -2,7 +2,6 @@ import { ITitleElement } from '@/components/editor/plugins/title-plugin'
 import { Badge } from '@/components/ui/badge'
 import { PlateElementProps } from '@udecode/plate-common/react'
 import { format } from 'date-fns'
-import { DailyNoteNav } from './DailyNoteNav'
 
 export const DailyTitle = ({
   attributes,
@@ -19,7 +18,7 @@ export const DailyTitle = ({
         <div>{children}</div>
         {isToday && <Badge contentEditable={false}>Today</Badge>}
       </div>
-      <DailyNoteNav date={date} />
+      {/* <DailyNoteNav date={date} /> */}
     </div>
   )
 }

@@ -7,8 +7,10 @@ import { IListItem, isListJSON, isMarkdownJSON } from 'penx'
 import { useSession } from '@penx/session'
 import { LoginByToken } from '../LoginByToken/LoginByToken'
 import { ClipboardHistoryApp } from './ClipboardHistoryApp'
+import { DatabaseListApp } from './DatabaseListApp/DatabaseListApp'
 import { ListApp } from './ListApp'
 import { MarketplaceApp } from './MarketplaceApp/MarketplaceApp'
+import { PageListApp } from './PageListApp/PageListApp'
 import { PostListApp } from './PostListApp/PostListApp'
 import { SettingsApp } from './SettingsApp/SettingsApp'
 import { TodayApp } from './TodayApp'
@@ -23,10 +25,15 @@ export const CommandApp = memo(
   function CommandApp({ loading, ui, currentCommand }: CommandAppProps) {
     const { data } = useSession()
 
-    // console.log('======ui.type:', ui.type)
+    console.log('======ui.type:', ui.type)
 
     if (ui.type === 'marketplace') {
       return <MarketplaceApp />
+    }
+
+    if (ui.type === 'pages') {
+      if (!data) return <LoginByToken />
+      return <PageListApp />
     }
 
     if (ui.type === 'posts') {
@@ -34,13 +41,19 @@ export const CommandApp = memo(
       return <PostListApp />
     }
 
+    if (ui.type === 'databases') {
+      if (!data) return <LoginByToken />
+      return <DatabaseListApp />
+    }
+
     if (ui.type === 'settings') {
       return <SettingsApp />
     }
 
-    // if (ui.type === 'today') {
-    //   return <TodayApp />
-    // }
+    if (ui.type === 'today') {
+      if (!data) return <LoginByToken />
+      return <TodayApp />
+    }
 
     // if (ui.type === 'clipboard-history') {
     //   return <ClipboardHistoryApp />

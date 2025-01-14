@@ -1,7 +1,6 @@
+import { IPost } from '@/common/types'
 import { CommandItem } from '@/components/command-components'
-import { IPost } from '@/components/CommandPalette/CommandApp/PostListApp/hooks/usePosts'
 import { ArrowRight, DownloadCloud } from 'lucide-react'
-import { StyledCommandItem } from '../../CommandComponents'
 import { ListItemIcon } from '../../ListItemIcon'
 
 interface PostItemProps {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { CommandItem } from '@/components/command-components'
 import { Kbd } from '@/components/Kbd'
 import {
   Popover,
@@ -94,7 +95,10 @@ export const ActionPopover = ({}: Props) => {
           </Box>
         </Box>
       </PopoverTrigger>
-      <PopoverContent className="action-menu shadow-2xl border border-foreground/30">
+      <PopoverContent
+        align="end"
+        className="action-menu shadow-2xl border border-foreground/30 p-0"
+      >
         <StyledCommand w-320>
           <StyledCommandList
             p2
@@ -163,15 +167,15 @@ interface MenuItemProps extends Omit<FowerHTMLProps<'div'>, 'onSelect'> {
 }
 function MenuItem({ children, shortcut, onSelect, ...rest }: MenuItemProps) {
   return (
-    <StyledCommandItem
-      h-40
-      cursorPointer
-      text-13
-      rounded-8
-      gap2
-      px2
-      toCenterY
-      transitionCommon
+    <CommandItem
+      // h-40
+      // cursorPointer
+      // text-13
+      // rounded-8
+      // gap2
+      // px2
+      // toCenterY
+      // transitionCommon
       onSelect={() => {
         onSelect?.()
       }}
@@ -189,12 +193,14 @@ function MenuItem({ children, shortcut, onSelect, ...rest }: MenuItemProps) {
       }}
       {...rest}
     >
-      {children}
-      <Box toBetween toCenterY ml-auto gap1>
-        {shortcut.split(' ').map((key) => {
-          return <Kbd key={key}>{key}</Kbd>
-        })}
-      </Box>
-    </StyledCommandItem>
+      <>
+        {children}
+        <Box toBetween toCenterY ml-auto gap1>
+          {shortcut.split(' ').map((key) => {
+            return <Kbd key={key}>{key}</Kbd>
+          })}
+        </Box>
+      </>
+    </CommandItem>
   )
 }

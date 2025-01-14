@@ -1,6 +1,3 @@
-import { User as IUser } from '@prisma/client'
-import { RoleType } from '@penx/constants'
-
 export type GithubInfo = {
   installationId: number
   repo: string
@@ -20,6 +17,28 @@ export type GoogleInfo = {
   id: string
   email: string
   picture: string
+}
+
+export type IUser = {
+  id: string
+  name: string
+  displayName: string
+  ensName: string
+  email: string
+  image: string | null
+  cover: string
+  bio: string
+  about: string
+  github: any
+  google: any
+  accounts: Array<{
+    id: string
+    providerType: string
+    providerAccountId: string
+    providerInfo: any
+    refreshToken: string
+    accessToken: string
+  }>
 }
 
 export class User {
