@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form'
-import LoadingCircle from '@/components/icons/loading-circle'
+import LoadingDots from '@/components/icons/loading-dots'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Box } from '@fower/react'
@@ -23,11 +23,11 @@ export function LoginByTokenForm() {
       <Button
         type="submit"
         size="lg"
-        w-100p
+        className="flex items-center gap-2"
         disabled={loading || !formState.isValid}
       >
-        {loading && <LoadingCircle />}
         <Box>Login</Box>
+        {loading && <LoadingDots />}
       </Button>
     </Box>
   )

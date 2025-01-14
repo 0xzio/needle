@@ -24,10 +24,6 @@ export function useLoginByTokenForm() {
         data.token,
       )
 
-      console.log('=====token:', token, 'user:', user)
-
-      return
-
       store.setToken(token as string)
       store.user.setUser(new User(user as any))
 
@@ -47,8 +43,6 @@ export function useLoginByTokenForm() {
       await setAuthorizedUser(user)
 
       appEmitter.emit('LOGIN_BY_PERSONAL_TOKEN_SUCCESSFULLY')
-
-      appEmitter.emit('LOAD_CLOUD_SPACES')
     } catch (error) {
       console.log('====error:', error)
 
