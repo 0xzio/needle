@@ -9,6 +9,7 @@ import { LoginByToken } from '../LoginByToken/LoginByToken'
 import { ClipboardHistoryApp } from './ClipboardHistoryApp'
 import { ListApp } from './ListApp'
 import { MarketplaceApp } from './MarketplaceApp/MarketplaceApp'
+import { SettingsApp } from './SettingsApp/SettingsApp'
 import { TodayApp } from './TodayApp'
 
 interface CommandAppProps {
@@ -28,6 +29,10 @@ export const CommandApp = memo(
     if (ui.type === 'posts') {
       if (!data) return <LoginByToken />
       return <div>Name...</div>
+    }
+
+    if (ui.type === 'settings') {
+      return <SettingsApp />
     }
 
     // if (ui.type === 'today') {

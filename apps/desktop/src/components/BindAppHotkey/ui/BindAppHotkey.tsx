@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Kbd } from '@/components/Kbd'
 import {
   Popover,
@@ -16,8 +16,6 @@ import {
   unregisterHotkey,
 } from '../utils'
 
-interface Props {}
-
 const modifierKeys = ['Control', 'Meta', 'Shift', 'Alt']
 const modifierCodes = [
   'ControlLeft',
@@ -30,8 +28,11 @@ const modifierCodes = [
   'AltRight',
 ]
 
-function Content() {
-  // const ctx = usePopoverContext()
+interface Props {
+  setOpen: Dispatch<SetStateAction<boolean>>
+}
+
+function Content({ setOpen }: Props) {
   const { refetch } = useAppHotkey()
   const [keys, setKeys] = useState<string[]>([])
 
@@ -40,7 +41,7 @@ function Content() {
 
     async function listenBlur() {
       unlisten = await listen('tauri://blur', () => {
-        // ctx.close()
+        setOpen(false)
       })
     }
 
@@ -75,7 +76,6 @@ function Content() {
         console.log('-==========keys:', keys, 'lastKey:', lastKey)
 
         const oldKeys = await getAppHotkey()
-        console.log('----44444444444')
 
         const oldHotkey = convertKeysToHotkey(oldKeys)
         const newHotkey = convertKeysToHotkey(keys)
@@ -85,7 +85,7 @@ function Content() {
         await registerAppHotkey(newHotkey)
         await saveAppHotkey(keys)
         await refetch()
-        // ctx.close()
+        setOpen(false)
       } else {
         setKeys(keys)
       }
@@ -128,12 +128,12 @@ function Content() {
   )
 }
 
-export const BindAppHotkey = ({}: Props) => {
+export const BindAppHotkey = () => {
   const { data = [], isLoading } = useAppHotkey()
-  console.log('x=======data:', data)
+  const [open, setOpen] = useState(false)
 
   return (
-    <Popover>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Box bgNeutral100 h-40 w-200 rounded2XL toCenter cursorPointer>
           <Box toCenterY gap1>
@@ -143,8 +143,11 @@ export const BindAppHotkey = ({}: Props) => {
           </Box>
         </Box>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] h-[100px] p-4 flex flex-col items-center">
-        <Content />
+      <PopoverContent
+        className="w-[200px] h-[100px] p-4 flex flex-col items-center"
+        align="end"
+      >
+        <Content setOpen={setOpen} />
       </PopoverContent>
     </Popover>
   )

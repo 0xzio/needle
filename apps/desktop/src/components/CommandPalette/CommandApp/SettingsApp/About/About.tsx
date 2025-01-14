@@ -8,7 +8,7 @@ export const About = ({}: Props) => {
     <Box w-100p h-100p column toCenter gap4>
       <Logo />
       <Box textXL neutral600>
-        A cross-platform productivity App
+        Desktop client of PenX
       </Box>
     </Box>
   )

@@ -63,6 +63,15 @@ export async function installBuiltinExtension() {
         code: '',
         isBuiltIn: true,
       },
+      {
+        name: 'settings',
+        title: 'Settings',
+        icon: '/icons/marketplace.svg',
+        subtitle: '',
+        description: '',
+        code: '',
+        isBuiltIn: true,
+      },
       // {
       //   name: 'marketplace',
       //   title: 'marketplace',

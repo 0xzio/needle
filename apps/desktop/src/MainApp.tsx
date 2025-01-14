@@ -4,7 +4,6 @@ import { PropsWithChildren, useEffect } from 'react'
 import { installBuiltinExtension } from '@/common/installBuiltinExtension'
 import { CommandPalette } from '@/components/CommandPalette/CommandPalette'
 import { DesktopWelcome } from '@/components/DesktopWelcome'
-import { EditorModeApp } from '@/components/EditorModeApp'
 import { InitUserToStore } from '@/components/InitUserToStore'
 import { useAppMode } from '@/hooks/useAppMode'
 import { Box } from '@fower/react'
@@ -14,10 +13,9 @@ import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { SessionProvider, useSession } from '@penx/session'
 import { getLocalSession } from '@penx/storage'
+import { HotkeyBinding } from './components/HotkeyBinding'
 
 export function MainApp() {
-  const { isEditor } = useAppMode()
-
   const {
     isLoading,
     data: isBoarded,
@@ -77,6 +75,7 @@ export function MainApp() {
       }}
     >
       {session && <InitUserToStore userId={session?.userId} />}
+      <HotkeyBinding />
 
       <Box
         relative
@@ -100,8 +99,7 @@ export function MainApp() {
             }}
           />
         )}
-        {isBoarded && (isEditor ? <EditorModeApp /> : <CommandPalette />)}
-        {/* {isBoarded && <CommandPalette />} */}
+        {isBoarded && <CommandPalette />}
       </Box>
     </SessionProvider>
   )

@@ -71,7 +71,7 @@ export const CommandPalette = () => {
       left0
       right0
       bottom0
-      zIndex-10000
+      zIndex-1
       // bg="#F6F2F0"
       neutral900
       bgWhite

@@ -25,9 +25,10 @@ export const General = ({}: Props) => {
 
       <Item>
         <Label>Startup</Label>
-        <Box>
-          <Checkbox>Auto launch PenX on startup</Checkbox>
-        </Box>
+        <div className="flex items-center gap-2">
+          <Checkbox></Checkbox>
+          <div>Auto launch PenX on startup</div>
+        </div>
       </Item>
     </Box>
   )

@@ -27,7 +27,7 @@ export function ExtensionCommands({ extension }: Props) {
             <Box flex-1>
               <SetAlias extension={extension} command={command} />
             </Box>
-            <Box flex-1>
+            <Box flex-1 className="ml-1">
               <BindingHotkey />
             </Box>
 

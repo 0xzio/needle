@@ -10,7 +10,7 @@ interface Props extends FowerHTMLProps<'div'> {
 
 export const Logo = ({
   showText = true,
-  showImage = true,
+  showImage = false,
   size = 32,
   stroke = 2,
   ...rest

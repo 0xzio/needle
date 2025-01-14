@@ -1,4 +1,3 @@
-import { ToggleModeButton } from '@/components/ToggleModeButton'
 import { useCommandPosition } from '@/hooks/useCommandPosition'
 import { useCurrentCommand } from '@/hooks/useCurrentCommand'
 import { useHandleSelect } from '@/hooks/useHandleSelect'
@@ -89,7 +88,6 @@ export const SearchBar = ({ searchBarHeight }: Props) => {
           }}
         />
       )}
-      {!isCommandApp && <ToggleModeButton mr3 />}
       {isCommandApp && currentCommand?.data?.filters && (
         <SearchBarFilter filters={currentCommand?.data?.filters} />
       )}

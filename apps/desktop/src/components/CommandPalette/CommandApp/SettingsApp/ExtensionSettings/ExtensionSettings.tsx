@@ -2,7 +2,7 @@ import { Box } from '@fower/react'
 import { ExtensionItem } from './ExtensionItem'
 import { useExtensions } from './useExtensions'
 
-export const PageExtensions = () => {
+export const ExtensionSettings = () => {
   const { data = [] } = useExtensions()
 
   return (

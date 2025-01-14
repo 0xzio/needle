@@ -29,6 +29,10 @@ type PageListUI = {
   type: 'pages'
 }
 
+type SettingsUI = {
+  type: 'settings'
+}
+
 type LoadingUI = {
   type: 'loading'
   data: LoadingType
@@ -61,6 +65,7 @@ export type CommandAppUI =
   | DatabaseListUI
   | PostListUI
   | PageListUI
+  | SettingsUI
 
 export const commandUIAtom = atom<CommandAppUI>({} as CommandAppUI)
 
