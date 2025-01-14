@@ -1,5 +1,5 @@
 import { styled } from '@fower/react'
-import { Command } from 'cmdk'
+import { Command } from '@penx/cmdk'
 
 export const StyledCommand = styled(Command)
 

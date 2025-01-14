@@ -52,13 +52,13 @@ var IS_GAP_REGEXP = /[\\\/_+.#"@\[\(\{&]/,
   COUNT_SPACE_REGEXP = /[\s-]/g
 
 function commandScoreInner(
-  string: string,
-  abbreviation: string,
-  lowerString: string,
-  lowerAbbreviation: string,
-  stringIndex: number,
-  abbreviationIndex: number,
-  memoizedResults: { [x: string]: number },
+  string,
+  abbreviation,
+  lowerString,
+  lowerAbbreviation,
+  stringIndex,
+  abbreviationIndex,
+  memoizedResults,
 ) {
   if (abbreviationIndex === abbreviation.length) {
     if (stringIndex === string.length) {
@@ -154,16 +154,24 @@ function commandScoreInner(
   return highScore
 }
 
-function formatInput(string: string) {
+function formatInput(string) {
   // convert all valid space characters to space so they match each other
   return string.toLowerCase().replace(COUNT_SPACE_REGEXP, ' ')
 }
 
-export function commandScore(string: string, abbreviation: string): number {
+export function commandScore(
+  string: string,
+  abbreviation: string,
+  aliases: string[],
+): number {
   /* NOTE:
    * in the original, we used to do the lower-casing on each recursive call, but this meant that toLowerCase()
    * was the dominating cost in the algorithm, passing both is a little ugly, but considerably faster.
    */
+  string =
+    aliases && aliases.length > 0
+      ? `${string + ' ' + aliases.join(' ')}`
+      : string
   return commandScoreInner(
     string,
     abbreviation,

@@ -1,5 +1,5 @@
 import { CommandItem } from '@/components/command-components'
-import { IPost } from '@/hooks/usePosts'
+import { IPost } from '@/components/CommandPalette/CommandApp/PostListApp/hooks/usePosts'
 import { ArrowRight, DownloadCloud } from 'lucide-react'
 import { StyledCommandItem } from '../../CommandComponents'
 import { ListItemIcon } from '../../ListItemIcon'

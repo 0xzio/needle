@@ -1,9 +1,19 @@
 {
   "extends": "@penx/tsconfig/react-library.json",
   "compilerOptions": {
-    "lib": ["ESNext", "DOM"],
-    "strictPropertyInitialization": false,
-    "strictNullChecks": true
+    "target": "es2018",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "noEmit": true
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

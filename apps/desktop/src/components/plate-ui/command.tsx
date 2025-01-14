@@ -9,8 +9,8 @@ import {
   withRef,
   withVariants,
 } from '@udecode/cn'
-import { Command as CommandPrimitive } from 'cmdk'
 import { Search } from 'lucide-react'
+import { Command as CommandPrimitive } from '@penx/cmdk'
 import { Dialog, DialogContent, DialogTitle } from './dialog'
 import { inputVariants } from './input'
 

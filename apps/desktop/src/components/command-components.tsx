@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { withCn, withRef } from '@udecode/cn'
-import { Command } from 'cmdk'
+import { Command } from '@penx/cmdk'
 
 export const CommandItem = withCn(
   Command.Item,

@@ -14,8 +14,8 @@ import { useReset } from '@/hooks/useReset'
 import { useValue } from '@/hooks/useValue'
 import { Box } from '@fower/react'
 import { Command as ShellCmd } from '@tauri-apps/plugin-shell'
-import { Command } from 'cmdk'
 import { Command as ShellxCmd } from 'tauri-plugin-shellx-api'
+import { Command } from '@penx/cmdk'
 import { store } from '@penx/store'
 import { CommandApp } from './CommandApp/CommandApp'
 import { StyledCommand, StyledCommandList } from './CommandComponents'
@@ -82,6 +82,9 @@ export const CommandPalette = () => {
       }
       // loop
       value={value}
+      onKeyDown={(event) => {
+        console.log('keydown:', event.key)
+      }}
       onValueChange={(v) => {
         setValue(v)
       }}
@@ -115,7 +118,8 @@ export const CommandPalette = () => {
       )}
       {!isIframe && <SearchBar searchBarHeight={searchBarHeight} />}
       <Box
-        h={bodyHeight}
+        className="flex-1"
+        // h={bodyHeight}
         overflowAuto
         relative
         style={{

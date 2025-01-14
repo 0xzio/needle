@@ -1,11 +1,16 @@
+import { useState } from 'react'
+import { IPost } from '@/common/types'
 import { CommandGroup } from '@/components/command-components'
+import { usePosts } from '@/components/CommandPalette/CommandApp/PostListApp/hooks/usePosts'
 import { Skeleton } from '@/components/ui/skeleton'
-import { usePosts } from '@/hooks/usePosts'
-import { open } from '@tauri-apps/plugin-shell'
+import { useCommandPosition } from '@/hooks/useCommandPosition'
+import { PostDetail } from './PostDetail'
 import { PostItem } from './PostItem'
 
 export function PostListApp() {
   const { posts, isLoading, error } = usePosts()
+  const [post, setPost] = useState<IPost>(null as any)
+  const { isCommandAppDetail, setPosition } = useCommandPosition()
 
   if (isLoading) {
     return (
@@ -20,19 +25,23 @@ export function PostListApp() {
   }
 
   return (
-    <CommandGroup>
-      {posts?.map((item) => {
-        return (
-          <PostItem
-            key={item.id}
-            item={item}
-            onSelect={() => {
-              // setExtension(item)
-              // setPosition('COMMAND_APP_DETAIL')
-            }}
-          />
-        )
-      })}
-    </CommandGroup>
+    <div>
+      {isCommandAppDetail && <PostDetail item={post} />}
+      {!isCommandAppDetail &&
+        posts?.map((item) => {
+          return (
+            <PostItem
+              key={item.id}
+              item={item}
+              onSelect={() => {
+                setPost(item)
+                setPosition('COMMAND_APP_DETAIL')
+              }}
+            />
+          )
+        })}
+    </div>
+    // <CommandGroup>
+    // </CommandGroup>
   )
 }

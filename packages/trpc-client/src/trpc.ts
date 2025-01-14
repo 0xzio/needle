@@ -5,10 +5,11 @@ import superjson from 'superjson'
 import { BASE_URL } from '@penx/constants'
 import { getHeaders } from './getHeaders'
 
+const URL = 'https://penx.io'
 const link = httpBatchLink({
   transformer: superjson,
   fetch: fetch,
-  url: `${BASE_URL}/api/trpc`,
+  url: `${URL}/api/trpc`,
   async headers() {
     return await getHeaders()
   },

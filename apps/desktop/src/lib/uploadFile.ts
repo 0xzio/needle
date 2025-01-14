@@ -1,3 +1,4 @@
+import { getSite } from '@penx/storage'
 import { api } from '@penx/trpc-client'
 import { calculateSHA256FromFile } from './calculateSHA256FromFile'
 import { IPFS_GATEWAY, IPFS_UPLOAD_URL, STATIC_URL } from './constants'
@@ -14,7 +15,7 @@ export async function uploadFile(file: File, isPublic = true) {
   const fileHash = await calculateSHA256FromFile(file)
   let data: UploadReturn = {}
   // const site = window.__SITE__
-  const site = '' // TODO
+  const site = await getSite()
 
   const res = await fetch(`${STATIC_URL}/${fileHash}`, {
     method: 'PUT',
@@ -33,8 +34,7 @@ export async function uploadFile(file: File, isPublic = true) {
   }
 
   await api.asset.create.mutate({
-    // siteId: site.id,
-    siteId: '',
+    siteId: site.id,
     url,
     filename: file.name,
     contentType: file.type,
