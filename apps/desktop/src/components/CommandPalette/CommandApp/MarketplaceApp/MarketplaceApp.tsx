@@ -2,29 +2,16 @@ import { useState } from 'react'
 import { IExtensionItem } from '@/common/types'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useCommandPosition } from '@/hooks/useCommandPosition'
+import { useExtensions } from '@/hooks/useExtensions'
 import { Box } from '@fower/react'
 import { useQuery } from '@tanstack/react-query'
-import { RouterOutputs } from '@penx/api'
-import { BASE_URL } from '@penx/constants'
 import { db } from '@penx/local-db'
-import { trpc } from '@penx/trpc-client'
 import { StyledCommandGroup } from '../../CommandComponents'
 import { ExtensionDetail } from './ExtensionDetail'
 import { ExtensionItem } from './ExtensionItem'
 
 export function MarketplaceApp() {
-  // const { data = [], isLoading } = useQuery({
-  //   queryKey: ['extension', 'all'],
-  //   queryFn: async () => {
-  //     const res: any[] = await fetch(
-  //       `${BASE_URL}/api/trpc/extension.all?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D`,
-  //     ).then((res) => res.json())
-
-  //     return res[0].result.data.json as IExtensionItem[]
-  //   },
-  // })
-
-  const { data = [], isLoading } = trpc.extension.all.useQuery()
+  const { extensions: remoteExtensions, isLoading } = useExtensions()
 
   const { data: extensions = [] } = useQuery({
     queryKey: ['extension', 'installed'],
@@ -49,7 +36,7 @@ export function MarketplaceApp() {
         <ExtensionDetail item={extension} extensions={extensions} />
       )}
       {!isCommandAppDetail &&
-        data?.map((item) => {
+        remoteExtensions?.map((item) => {
           return (
             <ExtensionItem
               key={item.id}

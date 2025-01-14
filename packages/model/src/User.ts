@@ -29,14 +29,6 @@ export class User {
     return this.raw?.id as string
   }
 
-  get username() {
-    return this.raw?.name || this.raw.username
-  }
-
-  get publicKey() {
-    return this.raw?.publicKey as string
-  }
-
   get image() {
     return this.raw.image || ''
   }
@@ -71,19 +63,7 @@ export class User {
     return (this.raw.google || {}) as GoogleInfo
   }
 
-  get connectedSyncServerId() {
-    return this.raw.connectedSyncServerId
-  }
-
   get isSyncWorks() {
     return !!this.repo
-  }
-
-  get isMnemonicBackedUp() {
-    return this.raw.isMnemonicBackedUp
-  }
-
-  get isAdmin() {
-    return this.raw.roleType === RoleType.ADMIN
   }
 }

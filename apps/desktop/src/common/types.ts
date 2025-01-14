@@ -1,5 +1,4 @@
 import { IListItem } from 'penx'
-import { RouterOutputs } from '@penx/api'
 import { FilterItem, IDatabaseNode } from '@penx/model-types'
 
 export interface ICommandItem extends IListItem {
@@ -22,19 +21,17 @@ export interface ICommandItem extends IListItem {
   }
 }
 
-export type IExtensionItem = RouterOutputs['extension']['all'][0]
-
-// export type IExtensionItem = {
-//   id: string
-//   userId: string
-//   name: string
-//   title: string
-//   manifest: string
-//   readme: string
-//   logo: string
-//   installationCount: number
-//   starCount: number
-//   commentCount: number
-//   createdAt: string
-//   updatedAt: string
-// }
+export type IExtensionItem = {
+  id: string
+  userId: string
+  name: string
+  title: string
+  manifest: string
+  readme: string
+  logo: string
+  installationCount: number
+  starCount: number
+  commentCount: number
+  createdAt: string
+  updatedAt: string
+}
