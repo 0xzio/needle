@@ -23,6 +23,8 @@ export const CommandApp = memo(
   function CommandApp({ loading, ui, currentCommand }: CommandAppProps) {
     const { data } = useSession()
 
+    // console.log('======ui.type:', ui.type)
+
     if (ui.type === 'marketplace') {
       return <MarketplaceApp />
     }

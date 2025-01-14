@@ -1,7 +1,12 @@
 import { createContext, useContext } from 'react'
 
+type SessionData = {
+  userId: string
+  siteId: string
+}
+
 export interface SessionContextValue {
-  data: any
+  data: SessionData
   loading: boolean
 }
 

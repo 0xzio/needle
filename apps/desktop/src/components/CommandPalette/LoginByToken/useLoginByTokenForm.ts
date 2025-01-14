@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { appEmitter } from '@penx/event'
 import { User } from '@penx/model'
-import { setAuthorizedUser, setLocalSession } from '@penx/storage'
+import { setAuthorizedUser, setLocalSession, setSite } from '@penx/storage'
 import { store } from '@penx/store'
 import { api } from '@penx/trpc-client'
 
@@ -24,8 +24,12 @@ export function useLoginByTokenForm() {
         data.token,
       )
 
+      console.log('===========user:', user)
+
       store.setToken(token as string)
       store.user.setUser(new User(user as any))
+
+      await setSite(user.site)
 
       await setLocalSession({
         userId: user.id,

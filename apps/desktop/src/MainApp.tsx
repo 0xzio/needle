@@ -12,7 +12,7 @@ import Head from 'next/head'
 import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { SessionProvider, useSession } from '@penx/session'
-import { getLocalSession } from '@penx/storage'
+import { getLocalSession, getSite } from '@penx/storage'
 import { HotkeyBinding } from './components/HotkeyBinding'
 
 export function MainApp() {
@@ -36,7 +36,14 @@ export function MainApp() {
     queryKey: ['session'],
     queryFn: async () => {
       const session = await getLocalSession()
-      return session ? session : null
+      const site = await getSite()
+
+      return session
+        ? {
+            ...session,
+            siteId: site.id,
+          }
+        : null
     },
   })
 

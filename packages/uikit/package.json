@@ -24,7 +24,7 @@
     "@fower/react": "^2.1.1",
     "@fower/utils": "^2.1.1",
     "framer-motion": "^10.16.14",
-    "lucide-react": "^0.344.0",
+    "lucide-react": "^0.456.0",
     "mitt": "^3.0.1",
     "rc-table": "^7.36.0",
     "react-merge-refs": "^2.1.1",

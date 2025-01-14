@@ -48,7 +48,7 @@
     "downshift": "^8.2.3",
     "framer-motion": "^10.18.0",
     "immer": "^10.0.4",
-    "lucide-react": "^0.344.0",
+    "lucide-react": "^0.456.0",
     "react-datepicker": "^4.24.0",
     "react-device-detect": "^2.2.3",
     "react-fast-compare": "^3.2.2",

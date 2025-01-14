@@ -10,8 +10,7 @@ const link = httpBatchLink({
   fetch: fetch,
   url: `${BASE_URL}/api/trpc`,
   async headers() {
-    // return await getHeaders()
-    return {}
+    return await getHeaders()
   },
 })
 

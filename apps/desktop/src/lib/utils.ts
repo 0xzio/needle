@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { STATIC_URL } from './constants'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -133,4 +134,17 @@ export function isIOS(): boolean {
 
 export function isMobile(): boolean {
   return isAndroid() || isIOS()
+}
+
+export function getUrl(value = '') {
+  if (isIPFSCID(value)) {
+    return `/api/ipfs-image?cid=${value}`
+  }
+
+  if (value.startsWith('/')) {
+    return `${STATIC_URL}${value}`
+  }
+
+  // return isIPFSCID(str) ? `${IPFS_GATEWAY}/ipfs/${str}` : str
+  return value
 }
