@@ -19,22 +19,11 @@ export async function handleEscape() {
     const mode = store.get(appModeAtom)
 
     if (event.key === 'Escape') {
-      if (mode === 'EDITOR') {
-        await invoke('set_window_properties', {
-          resizable: false,
-          width: 750.0,
-          height: 470.0,
-          focus: true,
-        })
-        await appWindow?.center()
-        store.set(appModeAtom, 'COMMAND')
+      const position = store.get(positionAtom)
+      if (position === 'ROOT') {
+        mainWindow?.hide()
       } else {
-        const position = store.get(positionAtom)
-        if (position === 'ROOT') {
-          mainWindow?.hide()
-        } else {
-          appEmitter.emit('ON_ESCAPE_IN_COMMAND')
-        }
+        appEmitter.emit('ON_ESCAPE_IN_COMMAND')
       }
     }
   })

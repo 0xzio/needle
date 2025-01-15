@@ -9,6 +9,7 @@ import { MainApp } from './MainApp'
 import '@/styles/globals.css'
 import '@/styles/command.scss'
 import { fixPathEnv } from 'tauri-plugin-shellx-api'
+import { createTrayIcon } from './common/createTrayIcon'
 import { handleEscape } from './common/handleEscape'
 import { watchDesktopLogin } from './common/watchDesktopLogin'
 import { watchExtensionDevChange } from './common/watchExtensionDevChange'
@@ -18,6 +19,7 @@ import { useInitThemeMode } from './hooks/useInitThemeMode'
 initFower()
 
 async function init() {
+  createTrayIcon()
   handleEscape()
   watchExtensionDevChange()
   watchDesktopLogin()

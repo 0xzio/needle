@@ -117,6 +117,7 @@ pub fn run() {
         ])
         .setup(|mut app| {
             let handle = app.handle();
+
             let conn = Connection::open_in_memory();
 
             // let boxed_handle = Box::new(handle);
