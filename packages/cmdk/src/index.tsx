@@ -564,7 +564,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>(
     const last = () => updateSelectedToIndex(getValidItems().length - 1)
 
     const next = (e: React.KeyboardEvent) => {
-      e.preventDefault()
+      // e.preventDefault()
 
       if (e.metaKey) {
         // Last item
@@ -579,7 +579,7 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>(
     }
 
     const prev = (e: React.KeyboardEvent) => {
-      e.preventDefault()
+      // e.preventDefault()
 
       if (e.metaKey) {
         // First item

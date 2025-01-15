@@ -11,6 +11,9 @@ export function useCommandPosition() {
   const { setCurrentCommand } = useCurrentCommand()
   const { setUI } = useCommandAppUI()
   const [position, setPosition] = useAtom(positionAtom)
+
+  // console.log('=====current=position:', position)
+
   function backToRoot() {
     setPosition('ROOT')
     setCurrentCommand(null as any)

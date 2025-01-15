@@ -7,6 +7,7 @@ import {
   currentCommandAtom,
   useCurrentCommand,
 } from '@/hooks/useCurrentCommand'
+import { useDatabases } from '@/hooks/useDatabases'
 import { useHandleSelect } from '@/hooks/useHandleSelect'
 import { useItems, useQueryCommands } from '@/hooks/useItems'
 import { useOnWindowMessage } from '@/hooks/useOnWindowMessage'
@@ -30,6 +31,7 @@ const footerHeight = 40
 
 export const CommandPalette = () => {
   const { value, setValue } = useValue()
+  useDatabases()
 
   const { developingItems, commandItems, databaseItems, applicationItems } =
     useItems()
@@ -82,9 +84,9 @@ export const CommandPalette = () => {
       }
       // loop
       value={value}
-      onKeyDown={(event) => {
-        console.log('keydown:', event.key)
-      }}
+      // onKeyDown={(event) => {
+      //   console.log('keydown:', event.key)
+      // }}
       onValueChange={(v) => {
         setValue(v)
       }}
@@ -184,11 +186,13 @@ export const CommandPalette = () => {
               onSelect={(item) => handleSelect(item)}
             /> */}
 
-            <ListGroup
-              heading="Applications"
-              items={applicationItems.splice(0, 10)}
-              onSelect={(item) => handleSelect(item)}
-            />
+            {!!applicationItems.length && (
+              <ListGroup
+                heading="Applications"
+                items={applicationItems.splice(0, 10)}
+                onSelect={(item) => handleSelect(item)}
+              />
+            )}
           </StyledCommandList>
         )}
       </Box>

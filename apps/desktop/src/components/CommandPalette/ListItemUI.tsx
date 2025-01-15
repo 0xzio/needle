@@ -36,9 +36,12 @@ export const ListItemUI = ({
 
   const title = typeof item.title === 'string' ? item.title : item.title.value
 
-  const subtitle =
-    typeof item.subtitle === 'string' ? item.subtitle : item.subtitle?.value
-
+  const subtitle = useMemo(() => {
+    if (item.subtitle === '$penx_builtin_extension') return ''
+    return typeof item.subtitle === 'string'
+      ? item.subtitle
+      : item.subtitle?.value
+  }, [item])
   if (item.type === 'list-heading') {
     return (
       <Box textXS gray400 pl-10 mb-2 mt2={index > 0}>

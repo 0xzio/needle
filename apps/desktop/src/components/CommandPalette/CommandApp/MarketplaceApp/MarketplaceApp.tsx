@@ -23,11 +23,13 @@ export function MarketplaceApp() {
 
   if (isLoading)
     return (
-      <Box column gap1>
-        <Skeleton className="h-18" />
-        <Skeleton className="h-18" />
-        <Skeleton className="h-18" />
-      </Box>
+      <div className="flex flex-col gap-1">
+        {Array(20)
+          .fill('')
+          .map((_, index) => (
+            <Skeleton key={index} className="h-16" />
+          ))}
+      </div>
     )
 
   return (

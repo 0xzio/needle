@@ -13,7 +13,7 @@ import { MarketplaceApp } from './MarketplaceApp/MarketplaceApp'
 import { PageListApp } from './PageListApp/PageListApp'
 import { PostListApp } from './PostListApp/PostListApp'
 import { SettingsApp } from './SettingsApp/SettingsApp'
-import { TodayApp } from './TodayApp'
+import { TodayApp } from './TodayApp/TodayApp'
 
 interface CommandAppProps {
   currentCommand: IListItem

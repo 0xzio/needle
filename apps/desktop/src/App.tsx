@@ -19,7 +19,7 @@ import { useInitThemeMode } from './hooks/useInitThemeMode'
 initFower()
 
 async function init() {
-  createTrayIcon()
+  // createTrayIcon()
   handleEscape()
   watchExtensionDevChange()
   watchDesktopLogin()

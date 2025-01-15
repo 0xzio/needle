@@ -19,6 +19,7 @@
     "core:image:default",
     "core:menu:default",
     "core:tray:default",
+    "core:app:allow-default-window-icon",
     "fs:default",
     "fs:read-all",
     "fs:write-all",

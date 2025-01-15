@@ -1,13 +1,9 @@
 import { Button } from '@/components/ui/button'
-import { useAppMode } from '@/hooks/useAppMode'
 import { currentDatabaseAtom } from '@/hooks/useCurrentDatabase'
 import { isAddRowAtom } from '@/hooks/useIsAddRow'
 import { Box } from '@fower/react'
 import { invoke } from '@tauri-apps/api/core'
-import {
-  getCurrentWebviewWindow,
-  WebviewWindow,
-} from '@tauri-apps/api/webviewWindow'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 import { Plus } from 'lucide-react'
 import { db } from '@penx/local-db'
 import { store } from '@penx/store'
@@ -15,14 +11,12 @@ import { store } from '@penx/store'
 interface Props {}
 
 export const AddRowButton = ({}: Props) => {
-  const { isEditor, setMode } = useAppMode()
   return (
     <Button
       size="lg"
       className="absolute right-2 rounded-full flex items-center gap-1"
       onClick={async () => {
-        const appWindow = getCurrentWebviewWindow()
-        setMode('EDITOR')
+        const appWindow = getCurrentWindow()
 
         await invoke('set_window_properties', {
           resizable: true,

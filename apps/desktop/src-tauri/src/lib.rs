@@ -1,8 +1,9 @@
 mod apple_script;
-// mod dev;
+mod dev;
 mod hello;
 mod menu;
 mod server;
+mod tray;
 mod util;
 
 use rusqlite::{Connection, ParamsFromIter, Result, ToSql};
@@ -104,10 +105,7 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![
             menu::on_button_clicked,
-            // dev::open_devtools,
-            // dev::close_devtools,
-            // dev::is_devtools_open,
-            // dev::toggle_devtools,
+            dev::open_devtools,
             greet,
             apple_script::run_applescript,
             set_window_properties,
@@ -117,6 +115,8 @@ pub fn run() {
         ])
         .setup(|mut app| {
             let handle = app.handle();
+
+            tray::create_tray(app.handle())?;
 
             let conn = Connection::open_in_memory();
 

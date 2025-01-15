@@ -1,6 +1,9 @@
 import { BindAppHotkey } from '@/components/BindAppHotkey'
+import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Box, styled } from '@fower/react'
+import { invoke } from '@tauri-apps/api/core'
+import { db } from '@penx/local-db'
 import { ThemeModeSelect } from './ThemeModeSelect'
 
 interface Props {}
@@ -30,6 +33,18 @@ export const General = ({}: Props) => {
           <div>Auto launch PenX on startup</div>
         </div>
       </Item>
+
+      <div>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={async () => {
+            await invoke('open_devtools')
+          }}
+        >
+          Open devtools
+        </Button>
+      </div>
     </Box>
   )
 }

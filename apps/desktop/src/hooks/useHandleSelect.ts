@@ -1,6 +1,6 @@
 import { ICommandItem } from '@/common/types'
 import { invoke } from '@tauri-apps/api/core'
-import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 import { appEmitter } from '@penx/event'
 import { db } from '@penx/local-db'
 import { useCommandAppLoading } from './useCommandAppLoading'
@@ -79,7 +79,7 @@ export function useHandleSelect() {
       setSearch('')
       await invoke('open_command', { path: applicationPath })
 
-      const appWindow = getCurrentWebviewWindow()
+      const appWindow = getCurrentWindow()
       await appWindow.hide()
     }
 

@@ -3,10 +3,7 @@ import { Separator } from '@/components/ui/separator'
 import { useSearch } from '@/hooks/useSearch'
 import { useValue } from '@/hooks/useValue'
 import { Box } from '@fower/react'
-import {
-  getCurrentWebviewWindow,
-  WebviewWindow,
-} from '@tauri-apps/api/webviewWindow'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 import { open } from '@tauri-apps/plugin-shell'
 import { ListJSON } from 'penx'
 import clipboard from 'tauri-plugin-clipboard-api'
@@ -58,7 +55,7 @@ export const ListApp = memo(function ListApp({ component }: ListAppProps) {
                 const defaultAction = item.actions?.[0]
                 if (defaultAction.type === 'OpenInBrowser') {
                   open(defaultAction.url)
-                  const appWindow = getCurrentWebviewWindow()
+                  const appWindow = getCurrentWindow()
                   appWindow.hide()
                 }
                 if (defaultAction.type === 'CopyToClipboard') {

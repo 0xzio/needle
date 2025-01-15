@@ -21,7 +21,10 @@ export async function installBuiltinExtension() {
       {
         name: 'today',
         title: 'Today',
-        icon: '/icons/marketplace.svg',
+        icon: {
+          name: 'solar--calendar-linear',
+          className: 'bg-gradient-to-r from-red-500 to-pink-500',
+        },
         subtitle: '',
         description: '',
         code: '',
@@ -30,7 +33,10 @@ export async function installBuiltinExtension() {
       {
         name: 'posts',
         title: 'Posts',
-        icon: '/icons/marketplace.svg',
+        icon: {
+          name: 'solar--pen-bold',
+          className: 'bg-gradient-to-r from-violet-500 to-fuchsia-500',
+        },
         subtitle: '',
         description: '',
         code: '',
@@ -39,7 +45,10 @@ export async function installBuiltinExtension() {
       {
         name: 'pages',
         title: 'Pages',
-        icon: '/icons/marketplace.svg',
+        icon: {
+          name: 'mage--file-2',
+          className: 'bg-gradient-to-r from-green-500 to-blue-500',
+        },
         subtitle: '',
         description: '',
         code: '',
@@ -66,7 +75,10 @@ export async function installBuiltinExtension() {
       {
         name: 'settings',
         title: 'Settings',
-        icon: '/icons/marketplace.svg',
+        icon: {
+          name: 'mingcute:settings-2-line',
+          className: 'bg-gradient-to-r from-lime-500 to-teal-500',
+        },
         subtitle: '',
         description: '',
         code: '',

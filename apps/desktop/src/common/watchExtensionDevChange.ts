@@ -1,7 +1,7 @@
 import { createCommandWorker } from '@/common/createCommandWorker'
 import { currentCommandAtom } from '@/hooks/useCurrentCommand'
 import { listen } from '@tauri-apps/api/event'
-import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow'
+import { getCurrentWindow } from '@tauri-apps/api/window'
 import { db } from '@penx/local-db'
 import { store } from '@penx/store'
 import { workerStore } from './workerStore'
@@ -17,7 +17,7 @@ type Payload = {
 }
 
 export async function watchExtensionDevChange() {
-  const appWindow = getCurrentWebviewWindow()
+  const appWindow = getCurrentWindow()
 
   if (appWindow.label !== 'main') return
 

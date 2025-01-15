@@ -221,8 +221,8 @@ export function useLoadCommands() {
             } as ICommandItem['data'],
           } as ICommandItem
         })
-        return [...commands, ...databaseItems, ...applicationItems]
-        // return [...commands, ...databaseItems]
+        // return [...commands, ...databaseItems, ...applicationItems]
+        return [...commands]
       } catch (error) {
         console.log('==============error:', error)
 
